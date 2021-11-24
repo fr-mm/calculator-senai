@@ -9,7 +9,7 @@ import domain.valueObjects.Percent;
 
 
 public class Equation {
-    private EquationElementRepository elementRepository;
+    private final EquationElementRepository elementRepository;
     
     public Equation(){
         elementRepository = new EquationElementRepository();
@@ -22,10 +22,8 @@ public class Equation {
     public void addOperation(Operation operation) {
         if (!elementRepository.isEmpty()) {
             EquationElement lastElement = elementRepository.getLast();
-            Boolean lastIsNumber = lastElement instanceof Number;
-            Boolean lastIsPercent = lastElement instanceof Percent;
             
-            if (!lastIsNumber && !lastIsPercent) {
+            if (!operation.canBePlacedAfter(lastElement)) {
                 elementRepository.removeLast();
             }
         }
@@ -34,7 +32,12 @@ public class Equation {
     
     public void addPercent() {
         Percent percent = new Percent();
-        elementRepository.add(percent);
+        if (!elementRepository.isEmpty()) {
+            EquationElement lastElement = elementRepository.getLast();
+            if (percent.canBePlacedAfter(lastElement)){
+                elementRepository.add(percent);
+            }
+        }
     }
     
     public void reset() {

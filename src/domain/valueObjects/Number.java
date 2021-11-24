@@ -17,6 +17,11 @@ public class Number extends EquationElement {
     }
     
     @Override
+    public Boolean canBePlacedAfter(EquationElement lastElement) {
+        return true;
+    }
+    
+    @Override
     public String toString() {
         return decimalFormat.format(value);
     }
