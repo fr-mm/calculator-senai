@@ -29,42 +29,42 @@
                   <Component id="display" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jButton1" alignment="0" min="-2" pref="42" max="-2" attributes="0"/>
-                          <Component id="jButton2" min="-2" pref="42" max="-2" attributes="0"/>
-                          <Component id="jButton3" min="-2" pref="42" max="-2" attributes="0"/>
-                          <Component id="jButton4" min="-2" pref="42" max="-2" attributes="0"/>
+                          <Component id="btn7" alignment="0" min="-2" pref="42" max="-2" attributes="0"/>
+                          <Component id="btn4" min="-2" pref="42" max="-2" attributes="0"/>
+                          <Component id="btn1" min="-2" pref="42" max="-2" attributes="0"/>
+                          <Component id="btnDot" min="-2" pref="42" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jButton5" alignment="0" min="-2" pref="42" max="-2" attributes="0"/>
-                          <Component id="jButton6" min="-2" pref="42" max="-2" attributes="0"/>
-                          <Component id="jButton7" min="-2" pref="42" max="-2" attributes="0"/>
-                          <Component id="jButton8" min="-2" pref="42" max="-2" attributes="0"/>
+                          <Component id="btn8" alignment="0" min="-2" pref="42" max="-2" attributes="0"/>
+                          <Component id="btn5" min="-2" pref="42" max="-2" attributes="0"/>
+                          <Component id="btn2" min="-2" pref="42" max="-2" attributes="0"/>
+                          <Component id="btn0" min="-2" pref="42" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jButton9" min="-2" pref="42" max="-2" attributes="0"/>
-                          <Component id="jButton10" alignment="0" min="-2" pref="42" max="-2" attributes="0"/>
-                          <Component id="jButton11" min="-2" pref="42" max="-2" attributes="0"/>
-                          <Component id="jButton12" min="-2" pref="42" max="-2" attributes="0"/>
+                          <Component id="btn6" min="-2" pref="42" max="-2" attributes="0"/>
+                          <Component id="btn9" alignment="0" min="-2" pref="42" max="-2" attributes="0"/>
+                          <Component id="btnPercent" min="-2" pref="42" max="-2" attributes="0"/>
+                          <Component id="btn3" min="-2" pref="42" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jButton16" alignment="0" min="-2" pref="42" max="-2" attributes="0"/>
-                                  <Component id="jButton13" alignment="0" min="-2" pref="42" max="-2" attributes="0"/>
+                                  <Component id="btnMinus" alignment="0" min="-2" pref="42" max="-2" attributes="0"/>
+                                  <Component id="btnPlus" alignment="0" min="-2" pref="42" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton17" min="-2" pref="42" max="-2" attributes="0"/>
+                              <Component id="btnClear" min="-2" pref="42" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jButton14" alignment="0" min="-2" pref="42" max="-2" attributes="0"/>
-                                  <Component id="jButton15" alignment="0" min="-2" pref="42" max="-2" attributes="0"/>
+                                  <Component id="btnMultiply" alignment="0" min="-2" pref="42" max="-2" attributes="0"/>
+                                  <Component id="btnDivide" alignment="0" min="-2" pref="42" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton18" min="-2" pref="42" max="-2" attributes="0"/>
+                              <Component id="btnEquals" min="-2" pref="42" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -82,49 +82,49 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="jButton1" min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="btn7" min="-2" pref="39" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton2" min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="btn4" min="-2" pref="39" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton3" min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="btn1" min="-2" pref="39" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton4" min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="btnDot" min="-2" pref="39" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="jButton5" min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="btn8" min="-2" pref="39" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton6" min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="btn5" min="-2" pref="39" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton7" min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="btn2" min="-2" pref="39" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton8" min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="btn0" min="-2" pref="39" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="jButton10" min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="btn9" min="-2" pref="39" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton9" min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="btn6" min="-2" pref="39" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton12" min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="btn3" min="-2" pref="39" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton11" min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="btnPercent" min="-2" pref="39" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="jButton13" min="-2" pref="39" max="-2" attributes="0"/>
+                              <Component id="btnPlus" min="-2" pref="39" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton16" min="-2" pref="39" max="-2" attributes="0"/>
+                              <Component id="btnMinus" min="-2" pref="39" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jButton17" max="32767" attributes="0"/>
+                          <Component id="btnClear" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="jButton14" min="-2" pref="39" max="-2" attributes="0"/>
+                              <Component id="btnMultiply" min="-2" pref="39" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton15" min="-2" pref="39" max="-2" attributes="0"/>
+                              <Component id="btnDivide" min="-2" pref="39" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jButton18" max="32767" attributes="0"/>
+                          <Component id="btnEquals" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -143,112 +143,115 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="btn7">
       <Properties>
         <Property name="text" type="java.lang.String" value="7"/>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn7ActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="btn4">
       <Properties>
         <Property name="text" type="java.lang.String" value="4"/>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="btn1">
       <Properties>
         <Property name="text" type="java.lang.String" value="1"/>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton4">
+    <Component class="javax.swing.JButton" name="btnDot">
       <Properties>
         <Property name="text" type="java.lang.String" value="."/>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton5">
+    <Component class="javax.swing.JButton" name="btn8">
       <Properties>
         <Property name="text" type="java.lang.String" value="8"/>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton6">
+    <Component class="javax.swing.JButton" name="btn5">
       <Properties>
         <Property name="text" type="java.lang.String" value="5"/>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton7">
+    <Component class="javax.swing.JButton" name="btn2">
       <Properties>
         <Property name="text" type="java.lang.String" value="2"/>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton8">
+    <Component class="javax.swing.JButton" name="btn0">
       <Properties>
         <Property name="text" type="java.lang.String" value="0"/>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton9">
+    <Component class="javax.swing.JButton" name="btn6">
       <Properties>
         <Property name="text" type="java.lang.String" value="6"/>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton9ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn6ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton10">
+    <Component class="javax.swing.JButton" name="btn9">
       <Properties>
         <Property name="text" type="java.lang.String" value="9"/>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton11">
+    <Component class="javax.swing.JButton" name="btnPercent">
       <Properties>
         <Property name="text" type="java.lang.String" value="%"/>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton12">
+    <Component class="javax.swing.JButton" name="btn3">
       <Properties>
         <Property name="text" type="java.lang.String" value="3"/>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton13">
+    <Component class="javax.swing.JButton" name="btnPlus">
       <Properties>
         <Property name="text" type="java.lang.String" value="+"/>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton14">
+    <Component class="javax.swing.JButton" name="btnMultiply">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#x2715;"/>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton15">
+    <Component class="javax.swing.JButton" name="btnDivide">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#xf7;"/>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton16">
+    <Component class="javax.swing.JButton" name="btnMinus">
       <Properties>
         <Property name="text" type="java.lang.String" value="-"/>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton17">
+    <Component class="javax.swing.JButton" name="btnClear">
       <Properties>
         <Property name="text" type="java.lang.String" value="C"/>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton18">
+    <Component class="javax.swing.JButton" name="btnEquals">
       <Properties>
         <Property name="text" type="java.lang.String" value="="/>
         <Property name="focusable" type="boolean" value="false"/>
