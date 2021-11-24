@@ -8,7 +8,8 @@ import domain.interfaces.CalculatorInterface;
 public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
     private CalculatorInterface calculator;
     
-    public JFrameGUI() {
+    public JFrameGUI(CalculatorInterface calculator) {
+        this.calculator = calculator;
         initComponents();
     }
     
@@ -16,6 +17,7 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
     public void setCalculator(CalculatorInterface calculator) {
         this.calculator = calculator;
     }
+
     
     @Override
     public void start() {
@@ -38,9 +40,13 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFrameGUI().setVisible(true);
+                new JFrameGUI(calculator).setVisible(true);
             }
         });
+    }
+    
+    private void updateDisplay(String text) {
+        display.setText(text);
     }
     
     @SuppressWarnings("unchecked")
@@ -81,24 +87,59 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
 
         btn4.setText("4");
         btn4.setFocusable(false);
+        btn4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn4ActionPerformed(evt);
+            }
+        });
 
         btn1.setText("1");
         btn1.setFocusable(false);
+        btn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn1ActionPerformed(evt);
+            }
+        });
 
         btnDot.setText(".");
         btnDot.setFocusable(false);
+        btnDot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDotActionPerformed(evt);
+            }
+        });
 
         btn8.setText("8");
         btn8.setFocusable(false);
+        btn8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn8ActionPerformed(evt);
+            }
+        });
 
         btn5.setText("5");
         btn5.setFocusable(false);
+        btn5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn5ActionPerformed(evt);
+            }
+        });
 
         btn2.setText("2");
         btn2.setFocusable(false);
+        btn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn2ActionPerformed(evt);
+            }
+        });
 
         btn0.setText("0");
         btn0.setFocusable(false);
+        btn0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn0ActionPerformed(evt);
+            }
+        });
 
         btn6.setText("6");
         btn6.setFocusable(false);
@@ -110,30 +151,75 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
 
         btn9.setText("9");
         btn9.setFocusable(false);
+        btn9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn9ActionPerformed(evt);
+            }
+        });
 
         btnPercent.setText("%");
         btnPercent.setFocusable(false);
+        btnPercent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPercentActionPerformed(evt);
+            }
+        });
 
         btn3.setText("3");
         btn3.setFocusable(false);
+        btn3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn3ActionPerformed(evt);
+            }
+        });
 
         btnPlus.setText("+");
         btnPlus.setFocusable(false);
+        btnPlus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPlusActionPerformed(evt);
+            }
+        });
 
         btnMultiply.setText("✕");
         btnMultiply.setFocusable(false);
+        btnMultiply.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMultiplyActionPerformed(evt);
+            }
+        });
 
         btnDivide.setText("÷");
         btnDivide.setFocusable(false);
+        btnDivide.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDivideActionPerformed(evt);
+            }
+        });
 
         btnMinus.setText("-");
         btnMinus.setFocusable(false);
+        btnMinus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMinusActionPerformed(evt);
+            }
+        });
 
         btnClear.setText("C");
         btnClear.setFocusable(false);
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
 
         btnEquals.setText("=");
         btnEquals.setFocusable(false);
+        btnEquals.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEqualsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -230,12 +316,94 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
-        // TODO add your handling code here:
+        String result = calculator.pressNumber(6);
+        updateDisplay(result);
     }//GEN-LAST:event_btn6ActionPerformed
 
     private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
-        // TODO add your handling code here:
+        String result = calculator.pressNumber(7);
+        updateDisplay(result);
     }//GEN-LAST:event_btn7ActionPerformed
+
+    private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
+        String result = calculator.pressNumber(8);
+        updateDisplay(result);
+    }//GEN-LAST:event_btn8ActionPerformed
+
+    private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
+        String result = calculator.pressNumber(4);
+        updateDisplay(result);
+    }//GEN-LAST:event_btn4ActionPerformed
+
+    private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
+        String result = calculator.pressNumber(5);
+        updateDisplay(result);
+    }//GEN-LAST:event_btn5ActionPerformed
+
+    private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
+        String result = calculator.pressNumber(1);
+        updateDisplay(result);
+    }//GEN-LAST:event_btn1ActionPerformed
+
+    private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
+        String result = calculator.pressNumber(2);
+        updateDisplay(result);
+    }//GEN-LAST:event_btn2ActionPerformed
+
+    private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
+        String result = calculator.pressNumber(3);
+        updateDisplay(result);
+    }//GEN-LAST:event_btn3ActionPerformed
+
+    private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
+        String result = calculator.pressNumber(9);
+        updateDisplay(result);
+    }//GEN-LAST:event_btn9ActionPerformed
+
+    private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ActionPerformed
+        String result = calculator.pressNumber(0);
+        updateDisplay(result);
+    }//GEN-LAST:event_btn0ActionPerformed
+
+    private void btnDotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDotActionPerformed
+        String result = calculator.pressDot();
+        updateDisplay(result);
+    }//GEN-LAST:event_btnDotActionPerformed
+
+    private void btnPercentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPercentActionPerformed
+        String result = calculator.pressPercent();
+        updateDisplay(result);
+    }//GEN-LAST:event_btnPercentActionPerformed
+
+    private void btnPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlusActionPerformed
+        String result = calculator.pressPlus();
+        updateDisplay(result);
+    }//GEN-LAST:event_btnPlusActionPerformed
+
+    private void btnMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinusActionPerformed
+        String result = calculator.pressMinus();
+        updateDisplay(result);
+    }//GEN-LAST:event_btnMinusActionPerformed
+
+    private void btnMultiplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMultiplyActionPerformed
+        String result = calculator.pressMultiply();
+        updateDisplay(result);
+    }//GEN-LAST:event_btnMultiplyActionPerformed
+
+    private void btnDivideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDivideActionPerformed
+        String result = calculator.pressDivide();
+        updateDisplay(result);
+    }//GEN-LAST:event_btnDivideActionPerformed
+
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        String result = calculator.pressClear();
+        updateDisplay(result);
+    }//GEN-LAST:event_btnClearActionPerformed
+
+    private void btnEqualsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEqualsActionPerformed
+        String result = calculator.pressEquals();
+        updateDisplay(result);
+    }//GEN-LAST:event_btnEqualsActionPerformed
 
 
 

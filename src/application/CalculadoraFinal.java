@@ -8,11 +8,10 @@ import domain.entities.Calculator;
 
 
 public class CalculadoraFinal {
-    private static final GUIInterface GUI = new JFrameGUI();
-    private static final CalculatorInterface CALCULATOR = new Calculator();
-        
     public static void main(String[] args) {
-        GUI.setCalculator(CALCULATOR);
+        CalculatorInterface calculator = new Calculator();  
+        GUIInterface GUI = new JFrameGUI(calculator);
+        
         GUI.start();   
     }
     

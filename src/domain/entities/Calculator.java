@@ -5,5 +5,50 @@ import domain.interfaces.CalculatorInterface;
 
 
 public class Calculator implements CalculatorInterface{
+    @Override
+    public String pressNumber(int number) {
+        return("");
+    }
+
+    @Override
+    public String pressPlus() {
+        return("");
+    }
+
+    @Override
+    public String pressMinus() {
+        return("");
+    }
+
+    @Override
+    public String pressMultiply() {
+        return("");
+    }
+
+    @Override
+    public String pressDivide() {
+        return("");
+    }
+
+    @Override
+    public String pressDot() {
+        return("");
+    }
+
+    @Override
+    public String pressPercent() {
+        return("");
+    }
+
+    @Override
+    public String pressClear() {
+        return("");
+    }
+
+    @Override
+    public String pressEquals() {
+        return("");
+    }
+
     
 }
