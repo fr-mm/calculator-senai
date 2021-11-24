@@ -2,9 +2,14 @@ package domain.entities;
 
 
 import domain.interfaces.CalculatorInterface;
+    
 
-
-public class Calculator implements CalculatorInterface{
+public class Calculator implements CalculatorInterface {
+    private final Equation equation;
+    
+    public Calculator() {
+        equation = new Equation();
+    }
     @Override
     public String pressNumber(int number) {
         return("");
