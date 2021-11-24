@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import domain.valueObjects.EquationElement;
 import domain.valueObjects.Number;
+import domain.valueObjects.Operation;
 
 
 public class Equation {
@@ -16,8 +17,12 @@ public class Equation {
         elements = new ArrayList<>();
     }
     
-    public void addNumber(double number) {
-        elements.add(new Number(number));
+    public void addNumber(Number number) {
+        elements.add(number);
+    }
+    
+    public void addOperation(Operation operation) {
+        elements.add(operation);
     }
     
     public void reset() {

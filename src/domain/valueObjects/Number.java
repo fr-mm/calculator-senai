@@ -5,7 +5,7 @@ import java.text.DecimalFormat;
 
 public class Number extends EquationElement {
     private double value;
-    private DecimalFormat decimalFormat;
+    private final DecimalFormat decimalFormat;
     
     public Number(double value) {
         this.value = value;

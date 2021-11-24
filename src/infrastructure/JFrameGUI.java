@@ -75,6 +75,7 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        display.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         display.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         btn7.setText("7");

@@ -2,6 +2,12 @@ package domain.entities;
 
 
 import domain.interfaces.CalculatorInterface;
+import domain.valueObjects.Divide;
+import domain.valueObjects.Multiply;
+import domain.valueObjects.Number;
+import domain.valueObjects.Operation;
+import domain.valueObjects.Sum;
+import domain.valueObjects.Subtract;
     
 
 public class Calculator implements CalculatorInterface {
@@ -12,28 +18,37 @@ public class Calculator implements CalculatorInterface {
     }
     @Override
     public String pressNumber(double number) {
-        equation.addNumber(number);
+        Number parsedNumber = new Number(number);
+        equation.addNumber(parsedNumber);
         return(equation.toString());
     }
 
     @Override
     public String pressPlus() {
-        return("");
+        Operation operation = new Sum();
+        equation.addOperation(operation);
+        return(equation.toString());
     }
 
     @Override
     public String pressMinus() {
-        return("");
+        Operation operation = new Subtract();
+        equation.addOperation(operation);
+        return(equation.toString());
     }
 
     @Override
     public String pressMultiply() {
-        return("");
+        Operation operation = new Multiply();
+        equation.addOperation(operation);
+        return(equation.toString());
     }
 
     @Override
     public String pressDivide() {
-        return("");
+        Operation operation = new Divide();
+        equation.addOperation(operation);
+        return(equation.toString());
     }
 
     @Override
