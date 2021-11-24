@@ -12,7 +12,8 @@ public class Calculator implements CalculatorInterface {
     }
     @Override
     public String pressNumber(double number) {
-        return("");
+        equation.addNumber(number);
+        return(equation.toString());
     }
 
     @Override

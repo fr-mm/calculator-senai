@@ -1,11 +1,15 @@
 package domain.valueObjects;
 
+import java.text.DecimalFormat;
+
 
 public class Number extends EquationElement {
     private double value;
+    private DecimalFormat decimalFormat;
     
     public Number(double value) {
         this.value = value;
+        decimalFormat = new DecimalFormat("###");
     }
     
     public double getValue() {
@@ -14,6 +18,6 @@ public class Number extends EquationElement {
     
     @Override
     public String toString() {
-        return String.valueOf(value);
+        return decimalFormat.format(value);
     }
 }
