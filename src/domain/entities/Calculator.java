@@ -6,6 +6,7 @@ import domain.valueObjects.Divide;
 import domain.valueObjects.Multiply;
 import domain.valueObjects.Number;
 import domain.valueObjects.Operation;
+import domain.valueObjects.Percent;
 import domain.valueObjects.Sum;
 import domain.valueObjects.Subtract;
     
@@ -58,7 +59,8 @@ public class Calculator implements CalculatorInterface {
 
     @Override
     public String pressPercent() {
-        return("");
+        equation.addPercent();
+        return(equation.toString());
     }
 
     @Override

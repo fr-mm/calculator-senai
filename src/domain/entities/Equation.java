@@ -1,41 +1,52 @@
 package domain.entities;
 
 
-import java.util.List;
-import java.util.ArrayList;
-
-
+import domain.repositories.EquationElementRepository;
 import domain.valueObjects.EquationElement;
 import domain.valueObjects.Number;
 import domain.valueObjects.Operation;
+import domain.valueObjects.Percent;
 
 
 public class Equation {
-    private List<EquationElement> elements;
+    private EquationElementRepository elementRepository;
     
     public Equation(){
-        elements = new ArrayList<>();
+        elementRepository = new EquationElementRepository();
     }
     
     public void addNumber(Number number) {
-        elements.add(number);
+        elementRepository.add(number);
     }
     
     public void addOperation(Operation operation) {
-        elements.add(operation);
+        if (!elementRepository.isEmpty()) {
+            EquationElement lastElement = elementRepository.getLast();
+            Boolean lastIsNumber = lastElement instanceof Number;
+            Boolean lastIsPercent = lastElement instanceof Percent;
+            
+            if (!lastIsNumber && !lastIsPercent) {
+                elementRepository.removeLast();
+            }
+        }
+        elementRepository.add(operation);
+    }
+    
+    public void addPercent() {
+        Percent percent = new Percent();
+        elementRepository.add(percent);
     }
     
     public void reset() {
-        elements.clear();
+        elementRepository.clear();
     }
     
     @Override
     public String toString() {
         String result = "";
-        for (EquationElement element : elements) {
+        for (EquationElement element : elementRepository.fetchAll()) {
             result += element.toString() + " ";
         }
         return result;
-    }
-    
+    }    
 }
