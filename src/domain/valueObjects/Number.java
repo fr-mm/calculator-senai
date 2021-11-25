@@ -11,6 +11,11 @@ public class Number extends EquationElement {
         this.value = value;
     }
     
+    public Number(BigInteger value) {
+        BigDecimal parsedValue = new BigDecimal(value);
+        this.value = parsedValue;
+    }
+    
     public Number(String value) {
         BigDecimal parsedValue = new BigDecimal(value);
         this.value = parsedValue;
@@ -39,30 +44,37 @@ public class Number extends EquationElement {
         BigDecimal newValue = value.divide(number.getValue());
         return new Number(newValue);
     }
+    
+    public Number divideByTen() {
+        BigDecimal newValue = value.divide(BigDecimal.TEN);
+        return new Number(newValue);
+    }
        
-    public BigInteger getIntegerPart() {
-        return value.toBigInteger();
+    public Number getIntegerPart() {
+        BigInteger integerPart = value.toBigInteger();
+        return new Number(integerPart);
     }
     
-    public BigDecimal getDecimalPart() {        
-        return value.remainder(BigDecimal.ONE);
+    public Number getDecimalPart() {        
+        BigDecimal newValue = value.remainder(BigDecimal.ONE);
+        return new Number(newValue);
     }
     
-    public BigInteger getDecimalPartSize() {     
+    public Number getDecimalPartSize() {     
         
         if (!isDotted()) {
-            return BigInteger.ZERO;
+            return new Number(BigInteger.ZERO);
         }
         
-        BigDecimal decimalPart = getDecimalPart();
+        Number decimalPart = getDecimalPart();
         String decimalPartAsString = decimalPart.toString();
         Integer decimalPartLength = decimalPartAsString.length() - 2;
 
-        return new BigInteger(decimalPartLength.toString());
+        return new Number(decimalPartLength.toString());
     }
     
     public boolean isDotted() {
-        return !getDecimalPart().equals(BigDecimal.ZERO);
+        return !getDecimalPart().value.equals(BigDecimal.ZERO);
     }
     
     @Override
