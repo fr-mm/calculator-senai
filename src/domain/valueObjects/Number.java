@@ -1,46 +1,43 @@
 package domain.valueObjects;
 
-import java.text.DecimalFormat;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 
 
 public class Number extends EquationElement {
-    private final double value;
+    private final BigDecimal value;
     
-    public Number(double value) {
+    public Number(BigDecimal value) {
         this.value = value;
     }
     
-    public double getValue() {
+    public BigDecimal getValue() {
         return value;
     }
        
-    public int getIntegerPart() {
-        return(int)this.getValue();
+    public BigInteger getIntegerPart() {
+        return value.toBigInteger();
     }
     
-    public int getDecimalPart() {        
-        Double parsedValue = value;
-        String valueAsString = parsedValue.toString();
-        String decimalPartAsString = valueAsString.split("\\.")[1];
-        int decimalPart = Integer.parseInt(decimalPartAsString);
+    public BigDecimal getDecimalPart() {        
+        return value.remainder(BigDecimal.ONE);
+    }
+    
+    public BigInteger getDecimalPartSize() {     
         
-        return decimalPart;
-    }
-    
-    public int getDecimalPartSize() {
-        int decimalPart = getDecimalPart();
-        if (decimalPart > 0) {
-            String decimalPartAsString = String.valueOf(getDecimalPart());
+        if (!isDotted()) {
+            return BigInteger.ZERO;
+        }
+        
+        BigDecimal decimalPart = getDecimalPart();
+        String decimalPartAsString = decimalPart.toString();
+        Integer decimalPartLength = decimalPartAsString.length() - 2;
 
-            return decimalPartAsString.length();
-        }
-        else {
-            return 0;
-        }
+        return new BigInteger(decimalPartLength.toString());
     }
     
     public boolean isDotted() {
-        return getDecimalPartSize() > 0;
+        return !getDecimalPart().equals(BigDecimal.ZERO);
     }
     
     @Override
@@ -50,14 +47,7 @@ public class Number extends EquationElement {
     
     @Override
     public String toString() {
-        String format = "#";
-        int decimalPartSize = getDecimalPartSize();
-        if (decimalPartSize > 0) {
-            String decimalPartFormat = new String(new char[decimalPartSize]).replace("\0", "#");
-            format += "." + decimalPartFormat;
-        }
-        DecimalFormat decimalFormat = new DecimalFormat(format);
-        return decimalFormat.format(value);
+        return value.toString();
     }
     
     @Override
