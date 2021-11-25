@@ -2,10 +2,11 @@ package domain.valueObjects;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.math.RoundingMode;
 
 
 public class Number extends EquationElement {
-    private final BigDecimal MAX_DECIMAL_PLACES = new BigDecimal("8"); 
+    private final int MAX_DECIMAL_PLACES = 8; 
     private final BigDecimal value;
 
     public Number(BigDecimal value) {
@@ -42,28 +43,28 @@ public class Number extends EquationElement {
     }
     
     public Number divide(Number number) {
-        BigDecimal newValue = value.divide(number.getValue());
+        BigDecimal newValue = value.divide(number.getValue(), MAX_DECIMAL_PLACES, RoundingMode.HALF_UP);
         return new Number(newValue);
     }
     
     public Number divideByTen() {
-        BigDecimal newValue = value.divide(BigDecimal.TEN);
-        return new Number(newValue);
+        Number ten = new Number(BigDecimal.TEN);
+        return divide(ten);
     }
     
     public Number divideByOneHundred() {
-        BigDecimal newValue = value.divide(new BigDecimal("100"));
-        return new Number(newValue);
+        Number oneHundred = new Number("100");
+        return divide(oneHundred);
     }
     
     public Number multiplyByTen() {
-        BigDecimal newValue = value.multiply(BigDecimal.TEN);
-        return new Number(newValue);
+        Number ten = new Number(BigDecimal.TEN);
+        return multiply(ten);
     }
     
     public Number invertPolarity() {
-        BigDecimal newValue = value.multiply(new BigDecimal("-1"));
-        return new Number(newValue);
+        Number minusOne = new Number("-1");
+        return multiply(minusOne);
     }
        
     public Number getIntegerPart() {
@@ -94,7 +95,7 @@ public class Number extends EquationElement {
     }
     
     public boolean maxDecimalPlacesReached() {
-        Number maxDecimalPlaces = new Number(MAX_DECIMAL_PLACES);
+        Number maxDecimalPlaces = new Number(String.valueOf(MAX_DECIMAL_PLACES));
         return !isLessThen(maxDecimalPlaces);
     }
     
@@ -109,11 +110,31 @@ public class Number extends EquationElement {
     
     @Override
     public String toString() {
-        return value.toString();
+        String valueAsString = value.toPlainString();
+        return removeDecimalZeros(valueAsString);
     }
     
     @Override
     public boolean isNumber() {
         return true;
+    }
+    
+    private String removeDecimalZeros(String numberAsString) {
+        
+        int lastIndex = numberAsString.length() - 1;
+        char lastChar = numberAsString.charAt(lastIndex);
+        
+        boolean isDotted = numberAsString.contains(".");
+        boolean endsWithZero = lastChar == '0';
+        boolean endsWithDot = lastChar == '.';
+        
+        if (isDotted && (endsWithZero || endsWithDot)) {
+            numberAsString = numberAsString.substring(0, lastIndex);
+            return removeDecimalZeros(numberAsString);
+
+        }
+        else {
+            return numberAsString;
+        } 
     }
 }
