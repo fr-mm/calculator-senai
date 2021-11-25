@@ -21,9 +21,7 @@ public class SolveSubtractMicrosservice implements SolverInterface {
         Number firstNumber = (Number)elementRepository.getByIndex(firstNumberIndex);
         Number lastNumber = (Number)elementRepository.getByIndex(lastNumberIndex);
         
-        double newNumberValue = firstNumber.getValue() - lastNumber.getValue();
-        Number newNumber = new Number(newNumberValue);
-        
+        Number newNumber = firstNumber.subtract(lastNumber);   
         
         elementRepository.removeIndex(lastNumberIndex);
         elementRepository.removeIndex(sumIndex);

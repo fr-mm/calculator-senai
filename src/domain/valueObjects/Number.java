@@ -51,8 +51,18 @@ public class Number extends EquationElement {
         return new Number(newValue);
     }
     
+    public Number divideByOneHundred() {
+        BigDecimal newValue = value.divide(new BigDecimal("100"));
+        return new Number(newValue);
+    }
+    
     public Number multiplyByTen() {
         BigDecimal newValue = value.multiply(BigDecimal.TEN);
+        return new Number(newValue);
+    }
+    
+    public Number invertPolarity() {
+        BigDecimal newValue = value.multiply(new BigDecimal("-1"));
         return new Number(newValue);
     }
        

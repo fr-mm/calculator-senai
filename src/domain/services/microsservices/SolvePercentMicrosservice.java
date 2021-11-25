@@ -21,8 +21,7 @@ public class SolvePercentMicrosservice implements SolverInterface{
         Number firstNumber = (Number)elementRepository.getByIndex(firstNumberIndex);
         Number lastNumber = (Number)elementRepository.getByIndex(lastNumberIndex);
         
-        double newLastNumberValue = (firstNumber.getValue() * lastNumber.getValue()) / 100;
-        Number newLastNumber = new Number(newLastNumberValue);
+        Number newLastNumber = firstNumber.multiply(lastNumber).divideByOneHundred();
         
         elementRepository.removeIndex(lastNumberIndex);
         elementRepository.insert(lastNumberIndex, newLastNumber);

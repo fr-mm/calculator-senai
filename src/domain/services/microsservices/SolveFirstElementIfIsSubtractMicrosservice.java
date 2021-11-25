@@ -3,6 +3,7 @@ package domain.services.microsservices;
 
 import domain.repositories.EquationElementRepository;
 import domain.valueObjects.EquationElement;
+import domain.valueObjects.Number;
 
 
 public class SolveFirstElementIfIsSubtractMicrosservice {
@@ -19,9 +20,8 @@ public class SolveFirstElementIfIsSubtractMicrosservice {
         if (firstElement.isSubtract()) {
             elementRepository.removeFirst();
             
-            domain.valueObjects.Number firstNumber = (domain.valueObjects.Number)elementRepository.getFirst();
-            double newFirstValue = firstNumber.getValue() * -1;
-            domain.valueObjects.Number newFirstNumber = new domain.valueObjects.Number(newFirstValue);
+            Number firstNumber = (Number)elementRepository.getFirst();
+            Number newFirstNumber = firstNumber.invertPolarity();
             
             elementRepository.removeFirst();
             elementRepository.insert(0, newFirstNumber);
