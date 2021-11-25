@@ -4,6 +4,7 @@ package domain.entities;
 import domain.repositories.EquationElementRepository;
 import domain.services.AddNumberToRepositoryService;
 import domain.services.AddOperationToRepositoryService;
+import domain.valueObjects.Dot;
 import domain.valueObjects.EquationElement;
 import domain.valueObjects.Number;
 import domain.valueObjects.Operation;
@@ -36,6 +37,10 @@ public class Equation {
                 elementRepository.add(element);
             }
         }
+    }
+    
+    public void addElement(Dot element) {
+        
     }
     
     public void reset() {

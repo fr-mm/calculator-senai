@@ -3,6 +3,7 @@ package domain.entities;
 
 import domain.interfaces.CalculatorInterface;
 import domain.valueObjects.Divide;
+import domain.valueObjects.Dot;
 import domain.valueObjects.Multiply;
 import domain.valueObjects.Number;
 import domain.valueObjects.Operation;
@@ -54,13 +55,15 @@ public class Calculator implements CalculatorInterface {
 
     @Override
     public String pressDot() {
-        return("");
+        Dot dot = new Dot();
+        equation.addElement(dot);
+        return(equation.toString());
     }
 
     @Override
     public String pressPercent() {
-        Percent operation = new Percent();
-        equation.addElement(operation);
+        Percent percent = new Percent();
+        equation.addElement(percent);
         return(equation.toString());
     }
 
