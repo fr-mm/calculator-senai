@@ -13,7 +13,7 @@ import domain.valueObjects.Subtract;
     
 
 public class Calculator implements CalculatorInterface {
-    private final Equation equation;
+    private Equation equation;
     
     public Calculator() {
         equation = new Equation();
@@ -69,7 +69,8 @@ public class Calculator implements CalculatorInterface {
 
     @Override
     public String pressClear() {
-        return("");
+        equation = new Equation();
+        return(equation.toString());
     }
 
     @Override

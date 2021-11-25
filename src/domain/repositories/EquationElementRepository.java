@@ -32,10 +32,6 @@ public class EquationElementRepository {
         elements.remove(size() - 1);
     }
     
-    public void clear() {
-        elements.clear();
-    }
-    
     public int size() {
         return elements.size();
     }

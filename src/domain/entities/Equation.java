@@ -44,10 +44,6 @@ public class Equation {
         addDotToRepositoryService.execute(element);
     }
     
-    public void reset() {
-        elementRepository.clear();
-    }
-    
     @Override
     public String toString() {
         String result = "";
