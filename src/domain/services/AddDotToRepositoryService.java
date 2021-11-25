@@ -26,20 +26,30 @@ public class AddDotToRepositoryService {
     private void managePopulatedRepository(Dot dot) {
         EquationElement lastElement = elementRepository.getLast();
         
-        if (lastElement.isDot()) {
-            
+        if (dot.canBePlacedAfter(lastElement)) {
+            manageDotAfterLastElement(dot, lastElement);
         }
-        else if (lastElement.isNumber()) {
+    }
+    
+    private void manageDotAfterLastElement(Dot dot, EquationElement lastElement) {
+        if (lastElement.isNumber()) {
             elementRepository.add(dot);
         }
         else {
             addWithZeroBefore(dot);
         }
-    }
+    } 
     
     private void addWithZeroBefore(Dot dot) {
         Number zero = new Number(0);
         elementRepository.add(zero);
         elementRepository.add(dot);
+    }
+    
+    private void addAfterNumber(Dot dot) {
+        Number lastNumber = (Number)elementRepository.getLast();
+        if (dot.canBePlacedAfter(lastNumber)) {
+            
+        }
     }
 }

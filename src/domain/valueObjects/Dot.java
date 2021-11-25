@@ -10,7 +10,17 @@ public class Dot extends EquationElement {
 
     @Override
     public boolean canBePlacedAfter(EquationElement lastElement) {
-        return lastElement.isNumber();
+        boolean result = false;
+        if (lastElement.isNumber()) {
+            Number lastNumber = (Number)lastElement;
+            if (!lastNumber.isDotted()) {
+                result = true;
+            }
+        }
+        else if (lastElement.isOperation()) {
+            result = true;
+        }
+        return result;
     }
 
     @Override

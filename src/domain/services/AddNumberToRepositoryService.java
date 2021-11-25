@@ -63,7 +63,6 @@ public class AddNumberToRepositoryService {
             String valueBefore = String.valueOf(numberBefore.getValue());
             String valueAfter = String.valueOf(numberAfter.getIntegerPart());
             String concatenatedValues = valueBefore.concat(valueAfter);
-            System.out.println(concatenatedValues);
             finalValue = Double.parseDouble(concatenatedValues);
         }
         

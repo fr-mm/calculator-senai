@@ -39,6 +39,10 @@ public class Number extends EquationElement {
         }
     }
     
+    public boolean isDotted() {
+        return getDecimalPartSize() > 0;
+    }
+    
     @Override
     public boolean canBePlacedAfter(EquationElement lastElement) {
         return !lastElement.isPercent();
