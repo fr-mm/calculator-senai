@@ -317,52 +317,52 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
-        String result = calculator.pressNumber(6);
+        String result = calculator.pressNumber("6");
         updateDisplay(result);
     }//GEN-LAST:event_btn6ActionPerformed
 
     private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
-        String result = calculator.pressNumber(7);
+        String result = calculator.pressNumber("7");
         updateDisplay(result);
     }//GEN-LAST:event_btn7ActionPerformed
 
     private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
-        String result = calculator.pressNumber(8);
+        String result = calculator.pressNumber("8");
         updateDisplay(result);
     }//GEN-LAST:event_btn8ActionPerformed
 
     private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
-        String result = calculator.pressNumber(4);
+        String result = calculator.pressNumber("4");
         updateDisplay(result);
     }//GEN-LAST:event_btn4ActionPerformed
 
     private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
-        String result = calculator.pressNumber(5);
+        String result = calculator.pressNumber("5");
         updateDisplay(result);
     }//GEN-LAST:event_btn5ActionPerformed
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
-        String result = calculator.pressNumber(1);
+        String result = calculator.pressNumber("1");
         updateDisplay(result);
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
-        String result = calculator.pressNumber(2);
+        String result = calculator.pressNumber("2");
         updateDisplay(result);
     }//GEN-LAST:event_btn2ActionPerformed
 
     private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
-        String result = calculator.pressNumber(3);
+        String result = calculator.pressNumber("3");
         updateDisplay(result);
     }//GEN-LAST:event_btn3ActionPerformed
 
     private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
-        String result = calculator.pressNumber(9);
+        String result = calculator.pressNumber("9");
         updateDisplay(result);
     }//GEN-LAST:event_btn9ActionPerformed
 
     private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ActionPerformed
-        String result = calculator.pressNumber(0);
+        String result = calculator.pressNumber("0");
         updateDisplay(result);
     }//GEN-LAST:event_btn0ActionPerformed
 
