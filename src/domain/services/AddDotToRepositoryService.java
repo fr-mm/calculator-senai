@@ -41,15 +41,8 @@ public class AddDotToRepositoryService {
     } 
     
     private void addWithZeroBefore(Dot dot) {
-        Number zero = new Number(0);
+        Number zero = new Number("0");
         elementRepository.add(zero);
         elementRepository.add(dot);
-    }
-    
-    private void addAfterNumber(Dot dot) {
-        Number lastNumber = (Number)elementRepository.getLast();
-        if (dot.canBePlacedAfter(lastNumber)) {
-            
-        }
     }
 }
