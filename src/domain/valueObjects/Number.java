@@ -14,6 +14,26 @@ public class Number extends EquationElement {
     public BigDecimal getValue() {
         return value;
     }
+    
+    public Number sum(Number number) {
+        BigDecimal newValue = value.add(number.getValue());
+        return new Number(newValue);
+    }
+    
+    public Number subtract(Number number) {
+        BigDecimal newValue = value.subtract(number.getValue());
+        return new Number(newValue);
+    }
+    
+    public Number multiply(Number number) {
+        BigDecimal newValue = value.multiply(number.getValue());
+        return new Number(newValue);
+    }
+    
+    public Number divide(Number number) {
+        BigDecimal newValue = value.divide(number.getValue());
+        return new Number(newValue);
+    }
        
     public BigInteger getIntegerPart() {
         return value.toBigInteger();
