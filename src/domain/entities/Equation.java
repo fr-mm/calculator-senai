@@ -5,6 +5,7 @@ import domain.repositories.EquationElementRepository;
 import domain.services.AddNumberToRepositoryService;
 import domain.services.AddOperationToRepositoryService;
 import domain.services.AddDotToRepositoryService;
+import domain.services.AddPercentToRepositoryService;
 import domain.valueObjects.Dot;
 import domain.valueObjects.EquationElement;
 import domain.valueObjects.Number;
@@ -17,12 +18,14 @@ public class Equation {
     private final AddNumberToRepositoryService addNumberToRepositoryService;
     private final AddOperationToRepositoryService addOperationToRepositoryService;
     private final AddDotToRepositoryService addDotToRepositoryService;
+    private final AddPercentToRepositoryService addPercentToRepositoryService;
     
     public Equation(){
         elementRepository = new EquationElementRepository();
         addNumberToRepositoryService = new AddNumberToRepositoryService(elementRepository);
         addOperationToRepositoryService = new AddOperationToRepositoryService(elementRepository);
         addDotToRepositoryService = new AddDotToRepositoryService(elementRepository);
+        addPercentToRepositoryService = new AddPercentToRepositoryService(elementRepository);
     }
     
     public void addElement(Number element) {
@@ -34,12 +37,7 @@ public class Equation {
     }
     
     public void addElement(Percent element) {
-        if (elementRepository.hasAtLeastThree()) {
-            EquationElement[] lastThreeElements = elementRepository.fetchLastThree();
-            if (element.canBePlacedAfterThreeElements(lastThreeElements)){
-                elementRepository.add(element);
-            }
-        }
+        addPercentToRepositoryService.execute(element);
     }
     
     public void addElement(Dot element) {
