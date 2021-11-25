@@ -49,5 +49,5 @@ public class AddOperationToRepositoryService {
             elementRepository.removeLast();
             elementRepository.add(operation);
         }
-    }     
+    }         
 }

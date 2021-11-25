@@ -21,20 +21,19 @@ public class Equation {
         addOperationToRepositoryService = new AddOperationToRepositoryService(elementRepository);
     }
     
-    public void addNumber(Number number) {
-        addNumberToRepositoryService.execucte(number);
+    public void addElement(Number element) {
+        addNumberToRepositoryService.execucte(element);
     }
     
-    public void addOperation(Operation operation) {
-        addOperationToRepositoryService.execute(operation);
+    public void addElement(Operation element) {
+        addOperationToRepositoryService.execute(element);
     }
     
-    public void addPercent() {
-        Percent percent = new Percent();
+    public void addElement(Percent element) {
         if (elementRepository.hasAtLeastThree()) {
             EquationElement[] lastThreeElements = elementRepository.fetchLastThree();
-            if (percent.canBePlacedAfterThreeElements(lastThreeElements)){
-                elementRepository.add(percent);
+            if (element.canBePlacedAfterThreeElements(lastThreeElements)){
+                elementRepository.add(element);
             }
         }
     }

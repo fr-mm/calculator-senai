@@ -20,35 +20,35 @@ public class Calculator implements CalculatorInterface {
     @Override
     public String pressNumber(double number) {
         Number parsedNumber = new Number(number);
-        equation.addNumber(parsedNumber);
+        equation.addElement(parsedNumber);
         return(equation.toString());
     }
 
     @Override
     public String pressPlus() {
         Operation operation = new Sum();
-        equation.addOperation(operation);
+        equation.addElement(operation);
         return(equation.toString());
     }
 
     @Override
     public String pressMinus() {
         Operation operation = new Subtract();
-        equation.addOperation(operation);
+        equation.addElement(operation);
         return(equation.toString());
     }
 
     @Override
     public String pressMultiply() {
         Operation operation = new Multiply();
-        equation.addOperation(operation);
+        equation.addElement(operation);
         return(equation.toString());
     }
 
     @Override
     public String pressDivide() {
         Operation operation = new Divide();
-        equation.addOperation(operation);
+        equation.addElement(operation);
         return(equation.toString());
     }
 
@@ -59,7 +59,8 @@ public class Calculator implements CalculatorInterface {
 
     @Override
     public String pressPercent() {
-        equation.addPercent();
+        Percent operation = new Percent();
+        equation.addElement(operation);
         return(equation.toString());
     }
 
