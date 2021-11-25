@@ -10,7 +10,6 @@ import domain.valueObjects.Operation;
 import domain.valueObjects.Percent;
 import domain.valueObjects.Sum;
 import domain.valueObjects.Subtract;
-import java.math.BigDecimal;
     
 
 public class Calculator implements CalculatorInterface {
@@ -21,8 +20,7 @@ public class Calculator implements CalculatorInterface {
     }
     @Override
     public String pressNumber(String number) {
-        BigDecimal value = new BigDecimal(number);
-        Number parsedNumber = new Number(value);
+        Number parsedNumber = new Number(number);
         equation.addElement(parsedNumber);
         return(equation.toString());
     }
