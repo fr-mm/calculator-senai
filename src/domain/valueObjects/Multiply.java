@@ -5,8 +5,7 @@ public class Multiply extends Operation {
 
     @Override
     public Number solve(Number firstNumber, Number secondNumber) {
-        double result = firstNumber.getValue() * secondNumber.getValue(); 
-        return new Number(result);
+        return firstNumber.multiply(secondNumber);
     }
 
     @Override
