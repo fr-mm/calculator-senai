@@ -2,6 +2,7 @@ package domain.entities;
 
 
 import domain.repositories.EquationElementRepository;
+import domain.services.AddNumberToRepositoryService;
 import domain.valueObjects.EquationElement;
 import domain.valueObjects.Number;
 import domain.valueObjects.Operation;
@@ -10,21 +11,15 @@ import domain.valueObjects.Percent;
 
 public class Equation {
     private final EquationElementRepository elementRepository;
+    private final AddNumberToRepositoryService addNumberToRepositoryService;
     
     public Equation(){
         elementRepository = new EquationElementRepository();
+        addNumberToRepositoryService = new AddNumberToRepositoryService(elementRepository);
     }
     
     public void addNumber(Number number) {
-        if (!elementRepository.isEmpty()) {
-            EquationElement lastElement = elementRepository.getLast();
-            if (number.canBePlacedAfter(lastElement)) {
-                elementRepository.add(number);
-            }
-        }
-        else {
-            elementRepository.add(number);
-        }
+        addNumberToRepositoryService.execucte(number);
     }
     
     public void addOperation(Operation operation) {

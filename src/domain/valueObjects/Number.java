@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 
 
 public class Number extends EquationElement {
-    private double value;
+    private final double value;
     private final DecimalFormat decimalFormat;
     
     public Number(double value) {
@@ -14,6 +14,11 @@ public class Number extends EquationElement {
     
     public double getValue() {
         return value;
+    }
+    
+    public Number concatenate(Number number) {
+        double finalValue = this.value * 10 + number.value;
+        return new Number(finalValue);
     }
     
     @Override
