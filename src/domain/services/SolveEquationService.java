@@ -1,18 +1,13 @@
 package domain.services;
 
+
 import domain.interfaces.SolverInterface;
 import domain.repositories.EquationElementRepository;
-import domain.services.microsservices.SolveDivideMicrosservice;
 import domain.services.microsservices.SolveFirstElementIfIsSubtractMicrosservice;
-import domain.services.microsservices.SolveMultiplyMicrosservice;
+import domain.services.microsservices.SolveOperationMicrosservice;
 import domain.services.microsservices.SolvePercentMicrosservice;
-import domain.services.microsservices.SolveSubtractMicrosservice;
-import domain.services.microsservices.SolveSumMicrosservice;
 import domain.valueObjects.Divide;
-import domain.valueObjects.EquationElement;
 import domain.valueObjects.Multiply;
-import domain.valueObjects.Number;
-import domain.valueObjects.Operation;
 import domain.valueObjects.Percent;
 import domain.valueObjects.Subtract;
 import domain.valueObjects.Sum;
@@ -22,20 +17,14 @@ public class SolveEquationService {
     private final EquationElementRepository elementRepository;
     private final SolvePercentMicrosservice solvePercentMicrosservice; 
     private final SolveFirstElementIfIsSubtractMicrosservice solveFirstElementIfIsSubtractMicrosservice;
-    private final SolveSumMicrosservice solveSumMicrosservice;
-    private final SolveSubtractMicrosservice solveSubtractMicrosservice;
-    private final SolveMultiplyMicrosservice solveMultiplyMicrosservice;
-    private final SolveDivideMicrosservice solveDivideMicrosservice;
+    private final SolveOperationMicrosservice solveOperationMicrosservice;
 
     
     public SolveEquationService(EquationElementRepository elementRepository) {
         this.elementRepository = elementRepository;
         solvePercentMicrosservice = new SolvePercentMicrosservice(elementRepository);
         solveFirstElementIfIsSubtractMicrosservice = new SolveFirstElementIfIsSubtractMicrosservice(elementRepository);
-        solveSumMicrosservice = new SolveSumMicrosservice(elementRepository);
-        solveSubtractMicrosservice = new SolveSubtractMicrosservice(elementRepository);
-        solveMultiplyMicrosservice = new SolveMultiplyMicrosservice(elementRepository);
-        solveDivideMicrosservice = new SolveDivideMicrosservice(elementRepository);
+        solveOperationMicrosservice = new SolveOperationMicrosservice(elementRepository);
     }
     
     public void execute() {
@@ -58,19 +47,19 @@ public class SolveEquationService {
     }
     
     private void solveAllSums() {
-        solveRecursively(Sum.class, solveSumMicrosservice);
+        solveRecursively(Sum.class, solveOperationMicrosservice);
     }
     
     private void solveAllSubtractions() {
-        solveRecursively(Subtract.class, solveSubtractMicrosservice);
+        solveRecursively(Subtract.class, solveOperationMicrosservice);
     }
     
     private void solveAllMultiplies() {
-        solveRecursively(Multiply.class, solveMultiplyMicrosservice);
+        solveRecursively(Multiply.class, solveOperationMicrosservice);
     }
     
     private void solveAllDivisions() {
-        solveRecursively(Divide.class, solveDivideMicrosservice);
+        solveRecursively(Divide.class, solveOperationMicrosservice);
     }
     
     private void solveRecursively(Class operationType, SolverInterface solverMicrosservice) {
