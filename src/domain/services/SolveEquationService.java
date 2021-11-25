@@ -1,17 +1,23 @@
 package domain.services;
 
+import domain.interfaces.SolverInterface;
 import domain.repositories.EquationElementRepository;
+import domain.services.microsservices.SolvePercentMicroservice;
 import domain.valueObjects.EquationElement;
 import domain.valueObjects.Number;
 import domain.valueObjects.Operation;
+import domain.valueObjects.Percent;
+import java.util.function.Function;
 
 
 public class SolveEquationService {
     private final EquationElementRepository elementRepository;
+    private final SolvePercentMicroservice solvePercentMicroservice; 
 
     
     public SolveEquationService(EquationElementRepository elementRepository) {
         this.elementRepository = elementRepository;
+        solvePercentMicroservice = new SolvePercentMicroservice(elementRepository);
     }
     
     public void execute() {
@@ -22,7 +28,8 @@ public class SolveEquationService {
     
     private void solvePopulatedRepository() {
         solveFirstElementIfIsSubtract();
-        solvePercents();
+        solveAllPercents();
+        
     }
     
     private void solveFirstElementIfIsSubtract() {
@@ -39,26 +46,19 @@ public class SolveEquationService {
         }
     }
     
-    private void solvePercents() {
-        int percentIndex = elementRepository.getFirstPercentIndex();
+    private void solveAllPercents() {
+        solveRecursively(Percent.class, solvePercentMicroservice);  
+    } 
+    
+    private void solveRecursively(Class operationType, SolverInterface solverMicrosservice) {
+        int operationIndex = elementRepository.getIndexOfInstance(operationType);
         
-        if (percentIndex < 0) {
+        if (operationIndex < 0) {
             return;
         }
         
-        int firstNumberIndex = percentIndex - 3;
-        int lastNumberIndex = percentIndex - 1;
+        solverMicrosservice.execute(operationIndex);
         
-        Number firstNumber = (Number)elementRepository.getByIndex(firstNumberIndex);
-        Number lastNumber = (Number)elementRepository.getByIndex(lastNumberIndex);
-        
-        double newLastNumberValue = (firstNumber.getValue() * lastNumber.getValue()) / 100;
-        Number newLastNumber = new Number(newLastNumberValue);
-        
-        elementRepository.removeIndex(lastNumberIndex);
-        elementRepository.insert(lastNumberIndex, newLastNumber);
-        elementRepository.removeIndex(percentIndex);
-        
-        solvePercents();    
+        solveRecursively(operationType, solverMicrosservice);
     }
 }

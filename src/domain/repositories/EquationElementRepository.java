@@ -64,10 +64,10 @@ public class EquationElementRepository {
             elements.get(size - 3)
         };
     }
-    
-    public int getFirstPercentIndex() {       
+       
+    public int getIndexOfInstance(Class class_) {
         for (EquationElement element : elements) {
-            if (element.isPercent()) {
+            if (class_.isInstance(element)) {
                 return elements.indexOf(element);
             }
         }
