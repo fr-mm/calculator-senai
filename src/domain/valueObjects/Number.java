@@ -96,7 +96,8 @@ public class Number extends EquationElement {
     
     public boolean maxDecimalPlacesReached() {
         Number maxDecimalPlaces = new Number(String.valueOf(MAX_DECIMAL_PLACES));
-        return !isLessThen(maxDecimalPlaces);
+        
+        return isDotted() && !getDecimalPartSize().isLessThen(maxDecimalPlaces);
     }
     
     public boolean isDotted() {

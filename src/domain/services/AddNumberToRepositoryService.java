@@ -46,14 +46,13 @@ public class AddNumberToRepositoryService {
     }
     
     private Number getConcatenatedNumber(Number numberBefore, Number numberAfter){
+
         if (numberBefore.maxDecimalPlacesReached()) {
             return numberBefore;
         }
-        
         if (!numberBefore.isDotted()) {
             return numberBefore.multiplyByTen().sum(numberAfter);
         }
-        
         String newValue = numberBefore.toString() + numberAfter.toString();       
         return new Number(newValue);
     }
