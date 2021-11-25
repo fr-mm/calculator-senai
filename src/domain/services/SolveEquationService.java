@@ -2,6 +2,7 @@ package domain.services;
 
 import domain.interfaces.SolverInterface;
 import domain.repositories.EquationElementRepository;
+import domain.services.microsservices.SolveFirstElementIfIsSubtractMicrosservice;
 import domain.services.microsservices.SolvePercentMicroservice;
 import domain.valueObjects.EquationElement;
 import domain.valueObjects.Number;
@@ -13,11 +14,13 @@ import java.util.function.Function;
 public class SolveEquationService {
     private final EquationElementRepository elementRepository;
     private final SolvePercentMicroservice solvePercentMicroservice; 
+    private final SolveFirstElementIfIsSubtractMicrosservice solveFirstElementIfIsSubtractMicrosservice;
 
     
     public SolveEquationService(EquationElementRepository elementRepository) {
         this.elementRepository = elementRepository;
         solvePercentMicroservice = new SolvePercentMicroservice(elementRepository);
+        solveFirstElementIfIsSubtractMicrosservice = new SolveFirstElementIfIsSubtractMicrosservice(elementRepository);
     }
     
     public void execute() {
@@ -27,24 +30,11 @@ public class SolveEquationService {
     }
     
     private void solvePopulatedRepository() {
-        solveFirstElementIfIsSubtract();
+        solveFirstElementIfIsSubtractMicrosservice.execute();
         solveAllPercents();
         
     }
-    
-    private void solveFirstElementIfIsSubtract() {
-        EquationElement firstElement = elementRepository.getFirst();
-        if (firstElement.isSubtract()) {
-            elementRepository.removeFirst();
-            
-            Number firstNumber = (Number)elementRepository.getFirst();
-            double newFirstValue = firstNumber.getValue() * -1;
-            Number newFirstNumber = new Number(newFirstValue);
-            
-            elementRepository.removeFirst();
-            elementRepository.insert(0, newFirstNumber);
-        }
-    }
+
     
     private void solveAllPercents() {
         solveRecursively(Percent.class, solvePercentMicroservice);  
