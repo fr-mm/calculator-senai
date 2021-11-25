@@ -6,6 +6,7 @@ import domain.services.AddNumberToRepositoryService;
 import domain.services.AddOperationToRepositoryService;
 import domain.services.AddDotToRepositoryService;
 import domain.services.AddPercentToRepositoryService;
+import domain.services.SolveEquationService;
 import domain.valueObjects.Dot;
 import domain.valueObjects.EquationElement;
 import domain.valueObjects.Number;
@@ -19,6 +20,7 @@ public class Equation {
     private final AddOperationToRepositoryService addOperationToRepositoryService;
     private final AddDotToRepositoryService addDotToRepositoryService;
     private final AddPercentToRepositoryService addPercentToRepositoryService;
+    private final SolveEquationService solveEquationService;
     
     public Equation(){
         elementRepository = new EquationElementRepository();
@@ -26,6 +28,7 @@ public class Equation {
         addOperationToRepositoryService = new AddOperationToRepositoryService(elementRepository);
         addDotToRepositoryService = new AddDotToRepositoryService(elementRepository);
         addPercentToRepositoryService = new AddPercentToRepositoryService(elementRepository);
+        solveEquationService = new SolveEquationService(elementRepository);
     }
     
     public void addElement(Number element) {
@@ -42,6 +45,10 @@ public class Equation {
     
     public void addElement(Dot element) {
         addDotToRepositoryService.execute(element);
+    }
+    
+    public void solve() {
+        solveEquationService.execute();
     }
     
     @Override

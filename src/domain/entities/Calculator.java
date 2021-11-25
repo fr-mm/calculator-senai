@@ -75,7 +75,8 @@ public class Calculator implements CalculatorInterface {
 
     @Override
     public String pressEquals() {
-        return("");
+        equation.solve();
+        return(equation.toString());
     }
 
     

@@ -20,6 +20,10 @@ public class EquationElementRepository {
         this.elements.add(element);
     }
     
+    public EquationElement getByIndex(int index) {
+        return elements.get(index);
+    }
+    
     public EquationElement getLast() {
         return elements.get(size() - 1);
     }
@@ -28,8 +32,24 @@ public class EquationElementRepository {
         return elements.isEmpty();
     }
     
+    public EquationElement getFirst() {
+        return elements.get(0);
+    }
+    
     public void removeLast() {
         elements.remove(size() - 1);
+    }
+    
+    public void removeFirst() {
+        elements.remove(0);
+    }
+    
+    public void removeIndex(int index) {
+        elements.remove(index);
+    }
+    
+    public void insert(int index, EquationElement element) {
+        elements.add(index, element);
     }
     
     public int size() {
@@ -43,6 +63,15 @@ public class EquationElementRepository {
             elements.get(size - 2),
             elements.get(size - 3)
         };
+    }
+    
+    public int getFirstPercentIndex() {       
+        for (EquationElement element : elements) {
+            if (element.isPercent()) {
+                return elements.indexOf(element);
+            }
+        }
+        return -1;
     }
     
     public boolean hasAtLeastThree() {
