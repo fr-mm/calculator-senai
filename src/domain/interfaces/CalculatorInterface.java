@@ -2,7 +2,7 @@ package domain.interfaces;
 
 
 public interface CalculatorInterface {
-    abstract public String pressNumber(double number);
+    abstract public String pressNumber(String number);
     abstract public String pressPlus();
     abstract public String pressMinus();
     abstract public String pressMultiply();
