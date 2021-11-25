@@ -1,5 +1,6 @@
 package domain.services;
 
+
 import domain.repositories.EquationElementRepository;
 import domain.valueObjects.EquationElement;
 import domain.valueObjects.Number;
@@ -29,11 +30,43 @@ public class AddNumberToRepositoryService {
         }
     }
     
-    private Number getResultOfInteractionWithLastElement(Number number, EquationElement lastElement) {
-        if (lastElement instanceof Number) {
-            number = ((Number) lastElement).concatenate(number);
+    private Number getResultOfInteractionWithLastElement(Number newNumber, EquationElement lastElement) {
+        if (lastElement.isNumber()) {
             elementRepository.removeLast();
+            return getConcatenatedNumber((Number)lastElement, newNumber);
         }
-        return number;
+        else if (lastElement.isDot()) {
+            elementRepository.removeLast();
+            Number secondToLastElement = (Number)elementRepository.getLast();
+            elementRepository.removeLast();
+            double newDecimalPart = newNumber.getValue() / 10;
+            double newValue = secondToLastElement.getValue() + newDecimalPart;
+            return new Number(newValue);
+            
+        }
+        return newNumber;
+    }
+    
+    private Number getConcatenatedNumber(Number numberBefore, Number numberAfter){
+        int integerPart = numberBefore.getIntegerPart();
+        int decimalPart = numberBefore.getDecimalPart();
+        
+        if (numberBefore.getDecimalPartSize() > 8) {
+            return numberBefore;
+        }
+        
+        double finalValue;
+        if (decimalPart == 0) {
+            finalValue = integerPart * 10 + numberAfter.getValue();
+        }
+        else {  
+            String valueBefore = String.valueOf(numberBefore.getValue());
+            String valueAfter = String.valueOf(numberAfter.getIntegerPart());
+            String concatenatedValues = valueBefore.concat(valueAfter);
+            System.out.println(concatenatedValues);
+            finalValue = Double.parseDouble(concatenatedValues);
+        }
+        
+        return new Number(finalValue);
     }
 }

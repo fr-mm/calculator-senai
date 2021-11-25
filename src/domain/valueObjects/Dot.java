@@ -5,7 +5,7 @@ public class Dot extends EquationElement {
 
     @Override
     public String toString() {
-        return ".";
+        return ",";
     }
 
     @Override

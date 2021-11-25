@@ -8,10 +8,7 @@ public class Percent extends EquationElement {
     }
     
     public Boolean canBePlacedAfterThreeElements(EquationElement[] lastElements) {
-        Boolean firstIsNumber = lastElements[0] instanceof Number;
-        Boolean secondIsOperation = lastElements[1] instanceof Operation;
-        Boolean thirdIsNumber = lastElements[2] instanceof Number;
-        return firstIsNumber && secondIsOperation && thirdIsNumber;
+        return lastElements[0].isNumber() && lastElements[1].isOperation() && lastElements[2].isNumber();
     }
 
     @Override

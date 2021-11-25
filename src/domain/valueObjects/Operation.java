@@ -6,9 +6,7 @@ public abstract class Operation extends EquationElement {
      
     @Override
     public boolean canBePlacedAfter(EquationElement lastElement){
-        Boolean lastIsNumber = lastElement instanceof Number;
-        Boolean lastIsPercent = lastElement instanceof Percent;
-        return lastIsNumber || lastIsPercent;
+        return lastElement.isNumber() || lastElement.isPercent();
     }
     
     @Override

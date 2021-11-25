@@ -102,7 +102,7 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
             }
         });
 
-        btnDot.setText(".");
+        btnDot.setText(",");
         btnDot.setFocusable(false);
         btnDot.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
