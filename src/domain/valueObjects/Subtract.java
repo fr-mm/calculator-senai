@@ -14,4 +14,9 @@ public class Subtract extends Operation {
         return "-";
     }
     
+    @Override
+    public boolean isSubtract() {
+        return true;
+    }
+    
 }

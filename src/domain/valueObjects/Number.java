@@ -22,12 +22,37 @@ public class Number extends EquationElement {
     }
     
     @Override
-    public Boolean canBePlacedAfter(EquationElement lastElement) {
+    public boolean canBePlacedAfter(EquationElement lastElement) {
         return !(lastElement instanceof Percent);
     }
     
     @Override
     public String toString() {
         return decimalFormat.format(value);
+    }
+    
+    @Override
+    public boolean isOperation() {
+        return false;
+    }
+    
+    @Override
+    public boolean isNumber() {
+        return true;
+    }
+    
+    @Override
+    public boolean isPercent() {
+        return false;
+    }
+    
+    @Override
+    public boolean isDot() {
+        return false;
+    }
+    
+    @Override
+    public boolean isSubtract() {
+        return false;
     }
 }

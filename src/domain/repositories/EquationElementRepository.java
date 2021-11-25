@@ -21,8 +21,7 @@ public class EquationElementRepository {
     }
     
     public EquationElement getLast() {
-        int size = elements.size();
-        return elements.get(size - 1);
+        return elements.get(size() - 1);
     }
     
     public Boolean isEmpty() {
@@ -30,16 +29,19 @@ public class EquationElementRepository {
     }
     
     public void removeLast() {
-        int size = elements.size();
-        elements.remove(size - 1);
+        elements.remove(size() - 1);
     }
     
     public void clear() {
         elements.clear();
     }
     
+    public int size() {
+        return elements.size();
+    }
+    
     public EquationElement[] fetchLastThree() {
-        int size = elements.size();
+        int size = size();
         return new EquationElement[]{
             elements.get(size - 1),
             elements.get(size - 2),
@@ -47,8 +49,8 @@ public class EquationElementRepository {
         };
     }
     
-    public Boolean hasAtLeastThree() {
-        return elements.size() >= 3;
+    public boolean hasAtLeastThree() {
+        return size() >= 3;
     }
     
 }
