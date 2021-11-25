@@ -5,11 +5,11 @@ import domain.repositories.EquationElementRepository;
 import domain.valueObjects.Number;
 
 
-public class SolvePercentMicroservice implements SolverInterface{
+public class SolvePercentMicrosservice implements SolverInterface{
     private final EquationElementRepository elementRepository;
 
     
-    public SolvePercentMicroservice(EquationElementRepository elementRepository) {
+    public SolvePercentMicrosservice(EquationElementRepository elementRepository) {
         this.elementRepository = elementRepository;
     }
     
