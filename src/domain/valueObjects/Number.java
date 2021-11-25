@@ -133,8 +133,6 @@ public class Number extends EquationElement {
             return removeDecimalZeros(numberAsString);
 
         }
-        else {
-            return numberAsString;
-        } 
+        return numberAsString;
     }
 }
