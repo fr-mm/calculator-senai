@@ -39,33 +39,22 @@ public class AddNumberToRepositoryService {
             elementRepository.removeLast();
             Number secondToLastElement = (Number)elementRepository.getLast();
             elementRepository.removeLast();
-            double newDecimalPart = newNumber.getValue() / 10;
-            double newValue = secondToLastElement.getValue() + newDecimalPart;
-            return new Number(newValue);
-            
+            Number newDecimalPart = newNumber.divideByTen();
+            return secondToLastElement.sum(newDecimalPart);
         }
         return newNumber;
     }
     
     private Number getConcatenatedNumber(Number numberBefore, Number numberAfter){
-        int integerPart = numberBefore.getIntegerPart();
-        int decimalPart = numberBefore.getDecimalPart();
-        
-        if (numberBefore.getDecimalPartSize() > 8) {
+        if (numberBefore.maxDecimalPlacesReached()) {
             return numberBefore;
         }
         
-        double finalValue;
-        if (decimalPart == 0) {
-            finalValue = integerPart * 10 + numberAfter.getValue();
-        }
-        else {  
-            String valueBefore = String.valueOf(numberBefore.getValue());
-            String valueAfter = String.valueOf(numberAfter.getIntegerPart());
-            String concatenatedValues = valueBefore.concat(valueAfter);
-            finalValue = Double.parseDouble(concatenatedValues);
+        if (!numberBefore.isDotted()) {
+            return numberBefore.multiplyByTen().sum(numberAfter);
         }
         
-        return new Number(finalValue);
+        String newValue = numberBefore.toString() + numberAfter.toString();       
+        return new Number(newValue);
     }
 }

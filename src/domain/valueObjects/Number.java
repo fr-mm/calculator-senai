@@ -5,8 +5,9 @@ import java.math.BigInteger;
 
 
 public class Number extends EquationElement {
+    private final BigDecimal MAX_DECIMAL_PLACES = new BigDecimal("8"); 
     private final BigDecimal value;
-    
+
     public Number(BigDecimal value) {
         this.value = value;
     }
@@ -49,6 +50,11 @@ public class Number extends EquationElement {
         BigDecimal newValue = value.divide(BigDecimal.TEN);
         return new Number(newValue);
     }
+    
+    public Number multiplyByTen() {
+        BigDecimal newValue = value.multiply(BigDecimal.TEN);
+        return new Number(newValue);
+    }
        
     public Number getIntegerPart() {
         BigInteger integerPart = value.toBigInteger();
@@ -71,6 +77,15 @@ public class Number extends EquationElement {
         Integer decimalPartLength = decimalPartAsString.length() - 2;
 
         return new Number(decimalPartLength.toString());
+    }
+    
+    public boolean isLessThen(Number number) {
+        return value.compareTo(number.getValue()) == -1;
+    }
+    
+    public boolean maxDecimalPlacesReached() {
+        Number maxDecimalPlaces = new Number(MAX_DECIMAL_PLACES);
+        return !isLessThen(maxDecimalPlaces);
     }
     
     public boolean isDotted() {
