@@ -11,6 +11,11 @@ public class Number extends EquationElement {
         this.value = value;
     }
     
+    public Number(String value) {
+        BigDecimal parsedValue = new BigDecimal(value);
+        this.value = parsedValue;
+    }
+    
     public BigDecimal getValue() {
         return value;
     }
