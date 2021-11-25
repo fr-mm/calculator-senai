@@ -15,24 +15,4 @@ public abstract class Operation extends EquationElement {
     public boolean isOperation() {
         return true;
     }
-    
-    @Override
-    public boolean isNumber() {
-        return false;
-    }
-    
-    @Override
-    public boolean isPercent() {
-        return false;
-    }
-    
-    @Override
-    public boolean isDot() {
-        return false;
-    }
-    
-    @Override
-    public boolean isSubtract() {
-        return false;
-    }
 }

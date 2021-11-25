@@ -7,13 +7,23 @@ abstract public class EquationElement {
     
     abstract public boolean canBePlacedAfter(EquationElement lastElement);
     
-    abstract public boolean isNumber();
+    public boolean isNumber() {
+        return false;
+    };
     
-    abstract public boolean isOperation();
+    public boolean isOperation() {
+        return false;
+    };
     
-    abstract public boolean isPercent();
+    public boolean isPercent() {
+        return false;
+    };
     
-    abstract public boolean isDot();
+    public boolean isDot() {
+        return false;
+    };
     
-    abstract public boolean isSubtract();
+    public boolean isSubtract() {
+        return false;
+    };
 }

@@ -32,27 +32,7 @@ public class Number extends EquationElement {
     }
     
     @Override
-    public boolean isOperation() {
-        return false;
-    }
-    
-    @Override
     public boolean isNumber() {
         return true;
-    }
-    
-    @Override
-    public boolean isPercent() {
-        return false;
-    }
-    
-    @Override
-    public boolean isDot() {
-        return false;
-    }
-    
-    @Override
-    public boolean isSubtract() {
-        return false;
     }
 }

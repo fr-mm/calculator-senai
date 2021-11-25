@@ -20,27 +20,7 @@ public class Percent extends EquationElement {
     }    
     
     @Override
-    public boolean isOperation() {
-        return false;
-    }
-    
-    @Override
-    public boolean isNumber() {
-        return false;
-    }
-    
-    @Override
     public boolean isPercent() {
         return true;
-    }
-    
-    @Override
-    public boolean isDot() {
-        return false;
-    }
-    
-    @Override
-    public boolean isSubtract() {
-        return false;
     }
 }
