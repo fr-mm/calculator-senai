@@ -18,7 +18,7 @@ public class Number extends EquationElement {
     
     @Override
     public Boolean canBePlacedAfter(EquationElement lastElement) {
-        return true;
+        return !(lastElement instanceof Percent);
     }
     
     @Override

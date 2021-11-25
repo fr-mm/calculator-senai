@@ -38,4 +38,17 @@ public class EquationElementRepository {
         elements.clear();
     }
     
+    public EquationElement[] fetchLastThree() {
+        int size = elements.size();
+        return new EquationElement[]{
+            elements.get(size - 1),
+            elements.get(size - 2),
+            elements.get(size - 3)
+        };
+    }
+    
+    public Boolean hasAtLeastThree() {
+        return elements.size() >= 3;
+    }
+    
 }

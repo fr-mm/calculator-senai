@@ -9,7 +9,7 @@ public abstract class Operation extends EquationElement {
     public Boolean canBePlacedAfter(EquationElement lastElement){
         Boolean lastIsNumber = lastElement instanceof Number;
         Boolean lastIsPercent = lastElement instanceof Percent;
-        return !lastIsNumber && !lastIsPercent;
+        return lastIsNumber || lastIsPercent;
     }
       
 }

@@ -16,7 +16,15 @@ public class Equation {
     }
     
     public void addNumber(Number number) {
-        elementRepository.add(number);
+        if (!elementRepository.isEmpty()) {
+            EquationElement lastElement = elementRepository.getLast();
+            if (number.canBePlacedAfter(lastElement)) {
+                elementRepository.add(number);
+            }
+        }
+        else {
+            elementRepository.add(number);
+        }
     }
     
     public void addOperation(Operation operation) {
@@ -32,9 +40,9 @@ public class Equation {
     
     public void addPercent() {
         Percent percent = new Percent();
-        if (!elementRepository.isEmpty()) {
-            EquationElement lastElement = elementRepository.getLast();
-            if (percent.canBePlacedAfter(lastElement)){
+        if (elementRepository.hasAtLeastThree()) {
+            EquationElement[] lastThreeElements = elementRepository.fetchLastThree();
+            if (percent.canBePlacedAfterThreeElements(lastThreeElements)){
                 elementRepository.add(percent);
             }
         }
