@@ -1,18 +1,14 @@
 package domain.services.microsservices;
 
+
 import domain.interfaces.SolverInterface;
 import domain.repositories.EquationElementRepository;
-import domain.valueObjects.Divide;
-import domain.valueObjects.Multiply;
 import domain.valueObjects.Number;
 import domain.valueObjects.Operation;
-import domain.valueObjects.Subtract;
-import domain.valueObjects.Sum;
 
 
 public class SolvePercentMicrosservice implements SolverInterface{
     private final EquationElementRepository elementRepository;
-
     
     public SolvePercentMicrosservice(EquationElementRepository elementRepository) {
         this.elementRepository = elementRepository;
@@ -27,7 +23,6 @@ public class SolvePercentMicrosservice implements SolverInterface{
             manageTriad(percentIndex);
         }
     }
-    
  
     private void manangePercentAsSecondElement() {
         Number numberBefore = (Number)elementRepository.getFirst();
@@ -59,21 +54,13 @@ public class SolvePercentMicrosservice implements SolverInterface{
     }
 
     private Number solve(Number firstNumber, Number lastNumber, Operation operation) {
+        Number newLastNumber;
         if (operation.isSum() || operation.isSubtract()) {
-            return solveSumOrSubtract(firstNumber, lastNumber, operation);
+            newLastNumber = firstNumber.multiply(lastNumber).divideByOneHundred();
         }
         else {
-            return solveMultiplyOrDivide(firstNumber, lastNumber, operation);
+            newLastNumber = lastNumber.divideByOneHundred();
         }
-    }
-    
-    private Number solveSumOrSubtract(Number firstNumber, Number lastNumber, Operation operation) {
-        Number newLastNumber = firstNumber.multiply(lastNumber).divideByOneHundred();
-        return operation.solve(firstNumber, newLastNumber);
-    }
-    
-    private Number solveMultiplyOrDivide(Number firstNumber, Number lastNumber, Operation operation) {
-        Number newLastNumber = lastNumber.divideByOneHundred();
         return operation.solve(firstNumber, newLastNumber);
     }
 }
