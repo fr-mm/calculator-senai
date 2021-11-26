@@ -36,10 +36,10 @@ public class SolveEquationService {
     private void solvePopulatedRepository() {
         solveFirstElementIfIsSubtractMicrosservice.execute();
         solveAllPercents();
-        solveAllSums();
-        solveAllSubtractions();
         solveAllMultiplies();
         solveAllDivisions();
+        solveAllSums();
+        solveAllSubtractions();
     }
     
     private void solveAllPercents() {
