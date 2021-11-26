@@ -17,5 +17,4 @@ public class Subtract extends Operation {
     public boolean isSubtract() {
         return true;
     }
-    
 }

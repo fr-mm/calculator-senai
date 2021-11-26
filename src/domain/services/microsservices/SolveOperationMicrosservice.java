@@ -1,5 +1,6 @@
 package domain.services.microsservices;
 
+
 import domain.interfaces.SolverInterface;
 import domain.repositories.EquationElementRepository;
 import domain.valueObjects.Number;
@@ -9,7 +10,6 @@ import domain.valueObjects.Operation;
 public class SolveOperationMicrosservice implements SolverInterface {
     private final EquationElementRepository elementRepository;
 
-    
     public SolveOperationMicrosservice(EquationElementRepository elementRepository) {
         this.elementRepository = elementRepository;
     }

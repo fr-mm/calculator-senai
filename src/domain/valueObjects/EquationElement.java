@@ -1,7 +1,8 @@
 package domain.valueObjects;
 
 
-abstract public class EquationElement {   
+abstract public class EquationElement { 
+    
     @Override
     abstract public String toString();
     

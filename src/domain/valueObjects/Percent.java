@@ -2,6 +2,7 @@ package domain.valueObjects;
 
 
 public class Percent extends EquationElement {   
+    
     @Override
     public boolean canBePlacedAfter(EquationElement lastElement) {
         return lastElement.isNumber();

@@ -8,7 +8,6 @@ import domain.valueObjects.Number;
 
 public class SolveFirstElementIfIsSubtractMicrosservice {
     private final EquationElementRepository elementRepository;
-
     
     public SolveFirstElementIfIsSubtractMicrosservice(EquationElementRepository elementRepository) {
         this.elementRepository = elementRepository;

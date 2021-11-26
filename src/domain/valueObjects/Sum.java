@@ -17,5 +17,4 @@ public class Sum extends Operation {
     public boolean isSum() {
         return true;
     }
-    
 }

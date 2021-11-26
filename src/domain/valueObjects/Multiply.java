@@ -17,5 +17,4 @@ public class Multiply extends Operation {
     public boolean isMultiply() {
         return true;
     }
-    
 }

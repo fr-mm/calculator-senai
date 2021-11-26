@@ -2,7 +2,7 @@ package domain.valueObjects;
 
 
 public class Dot extends EquationElement {
-
+    
     @Override
     public String toString() {
         return ",";
