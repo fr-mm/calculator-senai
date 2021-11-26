@@ -7,7 +7,6 @@ import domain.valueObjects.EquationElement;
 
 public class TrimLooseOperationAtEnd {
     private final EquationElementRepository elementRepository;
-
     
     public TrimLooseOperationAtEnd(EquationElementRepository elementRepository) {
         this.elementRepository = elementRepository;
