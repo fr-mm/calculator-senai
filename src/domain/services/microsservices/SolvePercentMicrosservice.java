@@ -3,6 +3,7 @@ package domain.services.microsservices;
 import domain.interfaces.SolverInterface;
 import domain.repositories.EquationElementRepository;
 import domain.valueObjects.Number;
+import domain.valueObjects.Operation;
 
 
 public class SolvePercentMicrosservice implements SolverInterface{
@@ -21,22 +22,6 @@ public class SolvePercentMicrosservice implements SolverInterface{
         else {
             manageTriad(percentIndex);
         }
-
-//        if (elementRepository.hasAtLeastOne()&& elementRepository.thirdToLastIsNumber()) {
-//            manageTriad(percentIndex);
-//        }
-//        
-//        else if (elementRepository.hasAtLeastOne() && elementRepository.getLast().isNumber()) {
-//            manageTriad(percentIndex);
-//        }
-//        
-//        if (percentIndex == 1) {
-//            manangePercentAsSecondElement();
-//        }
-//        
-//        else if (elementRepository.hasAtLeastThree()) {
-//            manageTriad(percentIndex);
-//        }
     }
     
  
@@ -52,15 +37,23 @@ public class SolvePercentMicrosservice implements SolverInterface{
     
     private void manageTriad(int percentIndex) {
         int firstNumberIndex = percentIndex - 3;
+        int operationIndex = percentIndex - 2;
         int lastNumberIndex = percentIndex - 1;
         
         Number firstNumber = (Number)elementRepository.getByIndex(firstNumberIndex);
         Number lastNumber = (Number)elementRepository.getByIndex(lastNumberIndex);
+        Operation operation = (Operation)elementRepository.getByIndex(operationIndex);
         
         Number newLastNumber = firstNumber.multiply(lastNumber).divideByOneHundred();
         
-        elementRepository.removeIndex(lastNumberIndex);
-        elementRepository.insert(lastNumberIndex, newLastNumber);
+        Number finalNumber = operation.solve(firstNumber, newLastNumber);
+        
         elementRepository.removeIndex(percentIndex);
+        elementRepository.removeIndex(lastNumberIndex);
+        elementRepository.removeIndex(operationIndex);
+        elementRepository.removeIndex(firstNumberIndex);
+        
+        elementRepository.insert(firstNumberIndex, finalNumber);
+        
     }
 }
