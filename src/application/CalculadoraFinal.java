@@ -13,6 +13,5 @@ public class CalculadoraFinal {
         GUIInterface GUI = new JFrameGUI(calculator);
         
         GUI.start();   
-    }
-    
+    } 
 }
