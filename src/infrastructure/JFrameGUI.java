@@ -74,10 +74,12 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
         btnEquals = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         display.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         display.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        btn7.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         btn7.setText("7");
         btn7.setFocusable(false);
         btn7.addActionListener(new java.awt.event.ActionListener() {
@@ -86,6 +88,7 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
             }
         });
 
+        btn4.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         btn4.setText("4");
         btn4.setFocusable(false);
         btn4.addActionListener(new java.awt.event.ActionListener() {
@@ -94,6 +97,7 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
             }
         });
 
+        btn1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         btn1.setText("1");
         btn1.setFocusable(false);
         btn1.addActionListener(new java.awt.event.ActionListener() {
@@ -102,6 +106,7 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
             }
         });
 
+        btnDot.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         btnDot.setText(",");
         btnDot.setFocusable(false);
         btnDot.addActionListener(new java.awt.event.ActionListener() {
@@ -110,6 +115,7 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
             }
         });
 
+        btn8.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         btn8.setText("8");
         btn8.setFocusable(false);
         btn8.addActionListener(new java.awt.event.ActionListener() {
@@ -118,6 +124,7 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
             }
         });
 
+        btn5.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         btn5.setText("5");
         btn5.setFocusable(false);
         btn5.addActionListener(new java.awt.event.ActionListener() {
@@ -126,6 +133,7 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
             }
         });
 
+        btn2.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         btn2.setText("2");
         btn2.setFocusable(false);
         btn2.addActionListener(new java.awt.event.ActionListener() {
@@ -134,6 +142,7 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
             }
         });
 
+        btn0.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         btn0.setText("0");
         btn0.setFocusable(false);
         btn0.addActionListener(new java.awt.event.ActionListener() {
@@ -142,6 +151,7 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
             }
         });
 
+        btn6.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         btn6.setText("6");
         btn6.setFocusable(false);
         btn6.addActionListener(new java.awt.event.ActionListener() {
@@ -150,6 +160,7 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
             }
         });
 
+        btn9.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         btn9.setText("9");
         btn9.setFocusable(false);
         btn9.addActionListener(new java.awt.event.ActionListener() {
@@ -158,6 +169,7 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
             }
         });
 
+        btnPercent.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btnPercent.setText("%");
         btnPercent.setFocusable(false);
         btnPercent.addActionListener(new java.awt.event.ActionListener() {
@@ -166,6 +178,7 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
             }
         });
 
+        btn3.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         btn3.setText("3");
         btn3.setFocusable(false);
         btn3.addActionListener(new java.awt.event.ActionListener() {
@@ -174,6 +187,7 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
             }
         });
 
+        btnPlus.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         btnPlus.setText("+");
         btnPlus.setFocusable(false);
         btnPlus.addActionListener(new java.awt.event.ActionListener() {
@@ -182,6 +196,7 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
             }
         });
 
+        btnMultiply.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         btnMultiply.setText("✕");
         btnMultiply.setFocusable(false);
         btnMultiply.addActionListener(new java.awt.event.ActionListener() {
@@ -190,6 +205,7 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
             }
         });
 
+        btnDivide.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         btnDivide.setText("÷");
         btnDivide.setFocusable(false);
         btnDivide.addActionListener(new java.awt.event.ActionListener() {
@@ -198,6 +214,7 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
             }
         });
 
+        btnMinus.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         btnMinus.setText("-");
         btnMinus.setFocusable(false);
         btnMinus.addActionListener(new java.awt.event.ActionListener() {
@@ -206,6 +223,8 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
             }
         });
 
+        btnClear.setBackground(new java.awt.Color(204, 0, 0));
+        btnClear.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         btnClear.setText("C");
         btnClear.setFocusable(false);
         btnClear.addActionListener(new java.awt.event.ActionListener() {
@@ -214,6 +233,8 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
             }
         });
 
+        btnEquals.setBackground(new java.awt.Color(0, 204, 0));
+        btnEquals.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         btnEquals.setText("=");
         btnEquals.setFocusable(false);
         btnEquals.addActionListener(new java.awt.event.ActionListener() {
