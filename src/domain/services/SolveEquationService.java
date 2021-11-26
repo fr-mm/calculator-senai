@@ -6,6 +6,7 @@ import domain.repositories.EquationElementRepository;
 import domain.services.microsservices.SolveFirstElementIfIsSubtractMicrosservice;
 import domain.services.microsservices.SolveOperationMicrosservice;
 import domain.services.microsservices.SolvePercentMicrosservice;
+import domain.services.microsservices.TrimLooseOperationAtEnd;
 import domain.valueObjects.Divide;
 import domain.valueObjects.Multiply;
 import domain.valueObjects.Percent;
@@ -18,6 +19,7 @@ public class SolveEquationService {
     private final SolvePercentMicrosservice solvePercentMicrosservice; 
     private final SolveFirstElementIfIsSubtractMicrosservice solveFirstElementIfIsSubtractMicrosservice;
     private final SolveOperationMicrosservice solveOperationMicrosservice;
+    private final TrimLooseOperationAtEnd trimLooseOperationAtEnd;
 
     
     public SolveEquationService(EquationElementRepository elementRepository) {
@@ -25,6 +27,7 @@ public class SolveEquationService {
         solvePercentMicrosservice = new SolvePercentMicrosservice(elementRepository);
         solveFirstElementIfIsSubtractMicrosservice = new SolveFirstElementIfIsSubtractMicrosservice(elementRepository);
         solveOperationMicrosservice = new SolveOperationMicrosservice(elementRepository);
+        trimLooseOperationAtEnd = new TrimLooseOperationAtEnd(elementRepository);
     }
     
     public void execute() {
@@ -34,6 +37,7 @@ public class SolveEquationService {
     }
     
     private void solvePopulatedRepository() {
+        trimLooseOperationAtEnd.execute();
         solveFirstElementIfIsSubtractMicrosservice.execute();
         solveAllPercents();
         solveAllMultiplies();
