@@ -18,6 +18,7 @@ public class Calculator implements CalculatorInterface {
     public Calculator() {
         equation = new Equation();
     }
+    
     @Override
     public String pressNumber(String number) {
         Number parsedNumber = new Number(number);
@@ -78,6 +79,4 @@ public class Calculator implements CalculatorInterface {
         equation.solve();
         return(equation.toString());
     }
-
-    
 }
