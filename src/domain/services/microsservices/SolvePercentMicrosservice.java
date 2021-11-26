@@ -18,12 +18,28 @@ public class SolvePercentMicrosservice implements SolverInterface{
         if (percentIndex == 1) {
             manangePercentAsSecondElement();
         }
-        
-        else if (elementRepository.hasAtLeastThree()) {
+        else {
             manageTriad(percentIndex);
         }
+
+//        if (elementRepository.hasAtLeastOne()&& elementRepository.thirdToLastIsNumber()) {
+//            manageTriad(percentIndex);
+//        }
+//        
+//        else if (elementRepository.hasAtLeastOne() && elementRepository.getLast().isNumber()) {
+//            manageTriad(percentIndex);
+//        }
+//        
+//        if (percentIndex == 1) {
+//            manangePercentAsSecondElement();
+//        }
+//        
+//        else if (elementRepository.hasAtLeastThree()) {
+//            manageTriad(percentIndex);
+//        }
     }
     
+ 
     private void manangePercentAsSecondElement() {
         Number numberBefore = (Number)elementRepository.getFirst();
         Number newNumber = numberBefore.divideByOneHundred();

@@ -78,8 +78,17 @@ public class EquationElementRepository {
         return size() >= 3;
     }
     
+    public boolean hasAtLeastTwo() {
+        return size() >= 2;
+    }
+    
     public boolean hasAtLeastOne() {
-        return elements.size() > 0;
+        return size() >= 1;
+    }
+    
+    public boolean thirdToLastIsNumber() {
+        EquationElement thirdToLast = getByIndex(size() - 3);
+        return thirdToLast.isNumber();
     }
     
 }
