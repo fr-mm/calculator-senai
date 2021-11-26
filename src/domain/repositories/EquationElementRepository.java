@@ -1,5 +1,6 @@
 package domain.repositories;
 
+
 import domain.valueObjects.EquationElement;
 import java.util.List;
 import java.util.ArrayList;
@@ -90,5 +91,4 @@ public class EquationElementRepository {
         EquationElement thirdToLast = getByIndex(size() - 3);
         return thirdToLast.isNumber();
     }
-    
 }
