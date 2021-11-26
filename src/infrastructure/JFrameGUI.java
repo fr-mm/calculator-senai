@@ -71,7 +71,7 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
         btnMinus = new javax.swing.JButton();
         btnClear = new javax.swing.JButton();
         btnEquals = new javax.swing.JButton();
-        display1 = new javax.swing.JLabel();
+        history = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -243,8 +243,8 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
             }
         });
 
-        display1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        display1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        history.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        history.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -253,7 +253,7 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(display1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(history, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -293,7 +293,7 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(display1, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+                .addComponent(history, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -433,7 +433,8 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
             updateDisplay(result);
         }
         catch (ArithmeticException error) {
-            updateDisplay("Operação inválida: dividir por zero");
+            updateDisplay("Não pode dividir por zero");
+            calculator.pressClear();
         }
     }//GEN-LAST:event_btnEqualsActionPerformed
 
@@ -457,6 +458,6 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
     private javax.swing.JButton btnPercent;
     private javax.swing.JButton btnPlus;
     private javax.swing.JLabel display;
-    private javax.swing.JLabel display1;
+    private javax.swing.JLabel history;
     // End of variables declaration//GEN-END:variables
 }
