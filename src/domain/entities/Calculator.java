@@ -23,60 +23,65 @@ public class Calculator implements CalculatorInterface {
     public String pressNumber(String number) {
         Number parsedNumber = new Number(number);
         equation.addElement(parsedNumber);
-        return(equation.toString());
+        return equationToString();
     }
 
     @Override
     public String pressPlus() {
         Operation operation = new Sum();
         equation.addElement(operation);
-        return(equation.toString());
+        return equationToString();
     }
 
     @Override
     public String pressMinus() {
         Operation operation = new Subtract();
         equation.addElement(operation);
-        return(equation.toString());
+        return equationToString();
     }
 
     @Override
     public String pressMultiply() {
         Operation operation = new Multiply();
         equation.addElement(operation);
-        return(equation.toString());
+        return equationToString();
     }
 
     @Override
     public String pressDivide() {
         Operation operation = new Divide();
         equation.addElement(operation);
-        return(equation.toString());
+        return equationToString();
     }
 
     @Override
     public String pressDot() {
         Dot dot = new Dot();
         equation.addElement(dot);
-        return(equation.toString());
+        return equationToString();
     }
 
     @Override
     public String pressPercent() {
         Percent percent = new Percent();
         equation.addElement(percent);
-        return(equation.toString());
+        return equationToString();
     }
 
     @Override
     public String pressClear() {
         equation = new Equation();
-        return(equation.toString());
+        return equationToString();
     }
 
     @Override
     public String pressEquals() {
         equation.solve();
-        return(equation.toString());
+        return equationToString();
+    }
+    
+    @Override
+    public String equationToString() {
+        return equation.toString();
     }
 }

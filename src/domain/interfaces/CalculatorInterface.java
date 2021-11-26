@@ -11,4 +11,5 @@ public interface CalculatorInterface {
     abstract public String pressPercent();
     abstract public String pressClear();
     abstract public String pressEquals();
+    abstract public String equationToString();
 }

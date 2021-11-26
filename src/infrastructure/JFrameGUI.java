@@ -7,9 +7,11 @@ import domain.interfaces.CalculatorInterface;
 
 public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
     private CalculatorInterface calculator;
+    private final EquationHistory equationHistory;
     
     public JFrameGUI(CalculatorInterface calculator) {
         this.calculator = calculator;
+        equationHistory = new EquationHistory();
         initComponents();
     }
     
@@ -48,6 +50,12 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
         display.setText(text);
     }
     
+    private void updateEquationHistory(String equation, String result) {
+        equationHistory.add(equation, result);
+        String lastEquations = equationHistory.toString();
+        equationHistoryDisplay.setText(lastEquations);
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -71,7 +79,7 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
         btnMinus = new javax.swing.JButton();
         btnClear = new javax.swing.JButton();
         btnEquals = new javax.swing.JButton();
-        history = new javax.swing.JLabel();
+        equationHistoryDisplay = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -243,8 +251,8 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
             }
         });
 
-        history.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        history.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        equationHistoryDisplay.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        equationHistoryDisplay.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -253,7 +261,7 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(history, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(equationHistoryDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -293,7 +301,7 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(history, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+                .addComponent(equationHistoryDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -429,8 +437,10 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
 
     private void btnEqualsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEqualsActionPerformed
         try {
+            String equationBeforeSolve = calculator.equationToString();
             String result = calculator.pressEquals();
             updateDisplay(result);
+            updateEquationHistory(equationBeforeSolve, result);
         }
         catch (ArithmeticException error) {
             updateDisplay("Não pode dividir por zero");
@@ -458,6 +468,6 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
     private javax.swing.JButton btnPercent;
     private javax.swing.JButton btnPlus;
     private javax.swing.JLabel display;
-    private javax.swing.JLabel history;
+    private javax.swing.JLabel equationHistoryDisplay;
     // End of variables declaration//GEN-END:variables
 }
