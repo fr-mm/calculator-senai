@@ -2,8 +2,12 @@ package domain.services.microsservices;
 
 import domain.interfaces.SolverInterface;
 import domain.repositories.EquationElementRepository;
+import domain.valueObjects.Divide;
+import domain.valueObjects.Multiply;
 import domain.valueObjects.Number;
 import domain.valueObjects.Operation;
+import domain.valueObjects.Subtract;
+import domain.valueObjects.Sum;
 
 
 public class SolvePercentMicrosservice implements SolverInterface{
@@ -43,10 +47,8 @@ public class SolvePercentMicrosservice implements SolverInterface{
         Number firstNumber = (Number)elementRepository.getByIndex(firstNumberIndex);
         Number lastNumber = (Number)elementRepository.getByIndex(lastNumberIndex);
         Operation operation = (Operation)elementRepository.getByIndex(operationIndex);
-        
-        Number newLastNumber = firstNumber.multiply(lastNumber).divideByOneHundred();
-        
-        Number finalNumber = operation.solve(firstNumber, newLastNumber);
+               
+        Number finalNumber = solve(firstNumber, lastNumber, operation);
         
         elementRepository.removeIndex(percentIndex);
         elementRepository.removeIndex(lastNumberIndex);
@@ -54,6 +56,24 @@ public class SolvePercentMicrosservice implements SolverInterface{
         elementRepository.removeIndex(firstNumberIndex);
         
         elementRepository.insert(firstNumberIndex, finalNumber);
-        
+    }
+
+    private Number solve(Number firstNumber, Number lastNumber, Operation operation) {
+        if (operation.isSum() || operation.isSubtract()) {
+            return solveSumOrSubtract(firstNumber, lastNumber, operation);
+        }
+        else {
+            return solveMultiplyOrDivide(firstNumber, lastNumber, operation);
+        }
+    }
+    
+    private Number solveSumOrSubtract(Number firstNumber, Number lastNumber, Operation operation) {
+        Number newLastNumber = firstNumber.multiply(lastNumber).divideByOneHundred();
+        return operation.solve(firstNumber, newLastNumber);
+    }
+    
+    private Number solveMultiplyOrDivide(Number firstNumber, Number lastNumber, Operation operation) {
+        Number newLastNumber = lastNumber.divideByOneHundred();
+        return operation.solve(firstNumber, newLastNumber);
     }
 }

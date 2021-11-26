@@ -13,4 +13,8 @@ public class Divide extends Operation {
         return "÷";
     }
     
+    @Override
+    public boolean isDivide() {
+        return true;
+    }
 }

@@ -13,4 +13,9 @@ public class Multiply extends Operation {
         return "✕";
     }
     
+    @Override
+    public boolean isMultiply() {
+        return true;
+    }
+    
 }

@@ -13,4 +13,9 @@ public class Sum extends Operation {
         return "+";
     }
     
+    @Override
+    public boolean isSum() {
+        return true;
+    }
+    
 }

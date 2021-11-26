@@ -26,4 +26,16 @@ abstract public class EquationElement {
     public boolean isSubtract() {
         return false;
     };
+    
+    public boolean isSum() {
+        return false;
+    };
+    
+    public boolean isMultiply() {
+        return false;
+    }
+    
+    public boolean isDivide() {
+        return false;
+    }
 }
