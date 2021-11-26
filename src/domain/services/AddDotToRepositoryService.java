@@ -1,5 +1,6 @@
 package domain.services;
 
+
 import domain.repositories.EquationElementRepository;
 import domain.valueObjects.Dot;
 import domain.valueObjects.EquationElement;
@@ -8,7 +9,6 @@ import domain.valueObjects.Number;
 
 public class AddDotToRepositoryService {
     private final EquationElementRepository elementRepository;
-
     
     public AddDotToRepositoryService(EquationElementRepository elementRepository) {
         this.elementRepository = elementRepository;

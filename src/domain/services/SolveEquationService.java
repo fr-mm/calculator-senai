@@ -21,7 +21,6 @@ public class SolveEquationService {
     private final SolveOperationMicrosservice solveOperationMicrosservice;
     private final TrimLooseOperationAtEnd trimLooseOperationAtEnd;
 
-    
     public SolveEquationService(EquationElementRepository elementRepository) {
         this.elementRepository = elementRepository;
         solvePercentMicrosservice = new SolvePercentMicrosservice(elementRepository);

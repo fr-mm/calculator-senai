@@ -1,5 +1,6 @@
 package domain.services;
 
+
 import domain.repositories.EquationElementRepository;
 import domain.valueObjects.EquationElement;
 import domain.valueObjects.Operation;
@@ -7,7 +8,6 @@ import domain.valueObjects.Operation;
 
 public class AddOperationToRepositoryService {
     private final EquationElementRepository elementRepository;
-
     
     public AddOperationToRepositoryService(EquationElementRepository elementRepository) {
         this.elementRepository = elementRepository;
