@@ -3,6 +3,7 @@ package domain.services;
 
 import domain.repositories.EquationElementRepository;
 import domain.valueObjects.EquationElement;
+import domain.valueObjects.Multiply;
 import domain.valueObjects.Number;
 
 
@@ -41,6 +42,10 @@ public class AddNumberToRepositoryService {
             elementRepository.removeLast();
             Number newDecimalPart = newNumber.divideByTen();
             return secondToLastElement.sum(newDecimalPart);
+        }
+        else if (lastElement.isPercent()) {
+            Multiply multipy = new Multiply();
+            elementRepository.add(multipy);
         }
         return newNumber;
     }

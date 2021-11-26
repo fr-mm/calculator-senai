@@ -22,7 +22,6 @@ public class AddPercentToRepositoryService {
         
     private void manageLastElement(Percent percent) {
         EquationElement lastElement = elementRepository.getLast();
-        System.out.println("oi");
         if (percent.canBePlacedAfter(lastElement)) {
             elementRepository.add(percent);
         }

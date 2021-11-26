@@ -106,7 +106,7 @@ public class Number extends EquationElement {
     
     @Override
     public boolean canBePlacedAfter(EquationElement lastElement) {
-        return !lastElement.isPercent();
+        return true;
     }
     
     @Override
