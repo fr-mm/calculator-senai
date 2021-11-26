@@ -4,7 +4,7 @@ package domain.valueObjects;
 public class Percent extends EquationElement {   
     @Override
     public boolean canBePlacedAfter(EquationElement lastElement) {
-        return lastElement instanceof Number;
+        return lastElement.isNumber();
     }
     
     public Boolean canBePlacedAfterThreeElements(EquationElement[] lastElements) {

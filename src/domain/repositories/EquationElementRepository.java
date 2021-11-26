@@ -78,4 +78,8 @@ public class EquationElementRepository {
         return size() >= 3;
     }
     
+    public boolean hasAtLeastOne() {
+        return elements.size() > 0;
+    }
+    
 }

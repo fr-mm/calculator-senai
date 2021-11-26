@@ -15,14 +15,15 @@ public class AddPercentToRepositoryService {
     }
     
     public void execute(Percent percent) {
-        if (elementRepository.hasAtLeastThree()) {
-            manageLastThreeElements(percent);
+        if (elementRepository.hasAtLeastOne()) {
+            manageLastElement(percent);
         }
     }
-    
-    private void manageLastThreeElements(Percent percent) {
-        EquationElement[] lastThreeElements = elementRepository.fetchLastThree();
-        if (percent.canBePlacedAfterThreeElements(lastThreeElements)){
+        
+    private void manageLastElement(Percent percent) {
+        EquationElement lastElement = elementRepository.getLast();
+        System.out.println("oi");
+        if (percent.canBePlacedAfter(lastElement)) {
             elementRepository.add(percent);
         }
     }

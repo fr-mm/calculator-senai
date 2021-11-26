@@ -15,6 +15,26 @@ public class SolvePercentMicrosservice implements SolverInterface{
     
     @Override
     public void execute(int percentIndex) {
+        if (percentIndex == 1) {
+            manangePercentAsSecondElement();
+        }
+        
+        else if (elementRepository.hasAtLeastThree()) {
+            manageTriad(percentIndex);
+        }
+    }
+    
+    private void manangePercentAsSecondElement() {
+        Number numberBefore = (Number)elementRepository.getFirst();
+        Number newNumber = numberBefore.divideByOneHundred();
+        
+        elementRepository.removeFirst();
+        elementRepository.removeFirst();
+        
+        elementRepository.insert(0, newNumber);
+    }
+    
+    private void manageTriad(int percentIndex) {
         int firstNumberIndex = percentIndex - 3;
         int lastNumberIndex = percentIndex - 1;
         
