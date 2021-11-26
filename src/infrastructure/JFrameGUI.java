@@ -17,7 +17,6 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
     public void setCalculator(CalculatorInterface calculator) {
         this.calculator = calculator;
     }
-
     
     @Override
     public void start() {
@@ -423,12 +422,14 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
     }//GEN-LAST:event_btnClearActionPerformed
 
     private void btnEqualsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEqualsActionPerformed
-        String result = calculator.pressEquals();
-        updateDisplay(result);
+        try {
+            String result = calculator.pressEquals();
+            updateDisplay(result);
+        }
+        catch (ArithmeticException error) {
+            updateDisplay("Operação inválida: dividir por zero");
+        }
     }//GEN-LAST:event_btnEqualsActionPerformed
-
-
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn0;
