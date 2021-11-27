@@ -7,17 +7,42 @@ import domain.interfaces.CalculatorInterface;
 
 public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
     private CalculatorInterface calculator;
-    private final EquationHistory equationHistory;
+    private final JFrameEquationHistory equationHistory;
     
     public JFrameGUI(CalculatorInterface calculator) {
-        this.calculator = calculator;
-        equationHistory = new EquationHistory();
         initComponents();
+        this.calculator = calculator;
+        equationHistory = createEquationHistory();
     }
     
+    
+    //is this necessary?
     @Override
     public void setCalculator(CalculatorInterface calculator) {
         this.calculator = calculator;
+    }
+    
+    private JFrameEquationHistory createEquationHistory() {
+        JFrameEquationHistoryContainer firstContainer = new JFrameEquationHistoryContainer(
+                historyEquationFirst, 
+                historyEqualsFirst,
+                historyResultFirst
+        );
+        JFrameEquationHistoryContainer middleContainer = new JFrameEquationHistoryContainer(
+                historyEquationMiddle, 
+                historyEqualsMiddle,
+                historyResultMiddle
+        );
+        JFrameEquationHistoryContainer lastContainer = new JFrameEquationHistoryContainer(
+                historyEquationLast,
+                historyEqualsLast,
+                historyResultLast
+        );
+        return new JFrameEquationHistory(firstContainer, middleContainer, lastContainer);
+    }
+    
+    private void updateDisplay(String text) {
+        display.setText(text);
     }
     
     @Override
@@ -45,17 +70,7 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
             }
         });
     }
-    
-    private void updateDisplay(String text) {
-        display.setText(text);
-    }
-    
-    private void updateEquationHistory(String equation, String result) {
-        equationHistory.add(equation, result);
-        String lastEquations = equationHistory.toString();
-        equationHistoryDisplay.setText(lastEquations);
-    }
-    
+ 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -79,7 +94,18 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
         btnMinus = new javax.swing.JButton();
         btnClear = new javax.swing.JButton();
         btnEquals = new javax.swing.JButton();
-        equationHistoryDisplay = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        historyEquationMiddle = new javax.swing.JLabel();
+        historyEqualsMiddle = new javax.swing.JLabel();
+        historyResultMiddle = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        historyEquationFirst = new javax.swing.JLabel();
+        historyEqualsFirst = new javax.swing.JLabel();
+        historyResultFirst = new javax.swing.JLabel();
+        historyResultLast = new javax.swing.JLabel();
+        historyEquationLast = new javax.swing.JLabel();
+        historyEqualsLast = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -251,8 +277,70 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
             }
         });
 
-        equationHistoryDisplay.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        equationHistoryDisplay.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(historyEquationMiddle, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(historyEqualsMiddle, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(historyResultMiddle, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(historyEquationMiddle, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(historyEqualsMiddle, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(historyResultMiddle, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(historyEquationFirst, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(historyEqualsFirst, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(historyResultFirst, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(historyEquationFirst, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(historyEqualsFirst, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(historyResultFirst, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(historyEquationLast, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(historyEqualsLast, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(historyResultLast, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(historyEquationLast, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(historyEqualsLast, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(historyResultLast, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -261,8 +349,6 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(equationHistoryDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btn7, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -294,16 +380,21 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
                                     .addComponent(btnMultiply, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnDivide, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnEquals, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addComponent(btnEquals, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 1, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(equationHistoryDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -440,7 +531,7 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
             String equationBeforeSolve = calculator.equationToString();
             String result = calculator.pressEquals();
             updateDisplay(result);
-            updateEquationHistory(equationBeforeSolve, result);
+            equationHistory.updateDisplay(equationBeforeSolve, result);
         }
         catch (ArithmeticException error) {
             updateDisplay("Não pode dividir por zero");
@@ -468,6 +559,17 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
     private javax.swing.JButton btnPercent;
     private javax.swing.JButton btnPlus;
     private javax.swing.JLabel display;
-    private javax.swing.JLabel equationHistoryDisplay;
+    private javax.swing.JLabel historyEqualsFirst;
+    private javax.swing.JLabel historyEqualsLast;
+    private javax.swing.JLabel historyEqualsMiddle;
+    private javax.swing.JLabel historyEquationFirst;
+    private javax.swing.JLabel historyEquationLast;
+    private javax.swing.JLabel historyEquationMiddle;
+    private javax.swing.JLabel historyResultFirst;
+    private javax.swing.JLabel historyResultLast;
+    private javax.swing.JLabel historyResultMiddle;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
 }
