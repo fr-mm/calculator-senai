@@ -15,8 +15,6 @@ public class JFrameGUI extends javax.swing.JFrame implements GUIInterface {
         equationHistory = createEquationHistory();
     }
     
-    
-    //is this necessary?
     @Override
     public void setCalculator(CalculatorInterface calculator) {
         this.calculator = calculator;
