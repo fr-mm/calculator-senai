@@ -17,8 +17,11 @@ public class JFrameEquationHistoryContainer {
     
     public void setText(String equation, String result) {
         equationCell.setText(equation);
-        equalsCell.setText("=");
         resultCell.setText(result);
+        
+        if (!result.isEmpty()) {
+            equalsCell.setText("=");
+        }
     }
     
     public String getEquation() {
